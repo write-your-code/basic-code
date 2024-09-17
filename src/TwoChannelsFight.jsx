@@ -82,42 +82,78 @@ const TwoChannelsFight = () => {
 
   return (
     <div
-      className={`mb-[0px] flex items-center justify-center gap-[0px] fixed overflow-hidden z-10 top-0 w-full bg-black`}
+      className={`mb-[0px] flex items-center gap-0 fixed overflow-hidden z-10 top-0 w-full bg-black border border-[#BD10E0]`}
     >
+      <div className="flex items-center gap-1 bg-[#BD10E0] h-[60px]">
+        <iframe
+          src="https://giphy.com/embed/WYyVSQE14MwIxkTep0"
+          width="40"
+          height="40"
+          // style=""
+          frameBorder="0"
+          class="giphy-embed"
+          allowFullScreen
+        ></iframe>
+        <div className="text-container">
+          <p className="text-white font-bold text-2xl">Top 50 Live Sub Count</p>
+        </div>
+        <iframe
+          src="https://giphy.com/embed/WYyVSQE14MwIxkTep0"
+          width="40"
+          height="40"
+          // style=""
+          frameBorder="0"
+          class="giphy-embed"
+          allowFullScreen
+        ></iframe>
+      </div>
       {One2One.map((channel, i) => (
         // 64 for ie and 59 for chrome
         <div
-          className={`h-[59px] flex gap-0 items-center relative  bg-white overflow-hidden ${
+          className={`h-[59px] flex gap-0 items-center relative  bg-white overflow-hidden   ${
             i === 2 ? "flex-row-reverse" : ""
           }`}
         >
           {/* vs iframe */}
           {channel.id === "0" ? (
-            <div className="flex flex-col justify-center items-center">
-              <iframe
-                src="https://giphy.com/embed/zN6RJRfeOtYbbmHhkp"
-                width="65"
-                height="45"
-                // style=""
-                frameBorder="0"
-                className="giphy-embed absolute -top-1 left-[0px] z-10"
-                allowFullScreen
-              ></iframe>
-              <div className="overflow-hidden w-[92px] h-[60px] bg-[#BD10E0]">
+            <div
+              className="flex flex-col justify-end h-full w-[80px]  items-center relative z-30"
+              id="diff"
+            >
+              <div className="absolute top-0 -left-2">
                 <iframe
-                  height="90px"
-                  width="300px"
-                  frameborder="0"
-                  src={`https://socialcounts.org/compare/youtube-live-subscriber-count/${One2One[0].channelId}/youtube-live-subscriber-count/${One2One[2].channelId}/embed?style=body%7Bbackground-color%3Argba%28189%2C16%2C224%2C1%29%21important%7D.odoParrent%7Bcolor%3A+rgba%28255%2C255%2C255%2C1%29%7D`}
-                  style={{ position: "relative", left: "-120px", top: "10px" }}
+                  src="https://giphy.com/embed/zN6RJRfeOtYbbmHhkp"
+                  width="150"
+                  height="45"
+                  // style=""
+                  frameBorder="0"
+                  className="giphy-embed absolute -top-2 -left-[25px] z-10"
                   allowFullScreen
                 ></iframe>
+                <div
+                  className="overflow-hidden w-[92px] h-[60px] bg-[#BD10E0] z-500"
+                  // id="diff"
+                >
+                  <iframe
+                    height="60px"
+                    width="340px"
+                    frameborder="0"
+                    src={`https://socialcounts.org/compare/youtube-live-subscriber-count/${One2One[0].channelId}/youtube-live-subscriber-count/${One2One[2].channelId}/embed?style=body%7Bbackground-color%3Argba%28255%2C255%2C255%2C1%29%21important%7D
+                  .compareId_difference%7Bcolor%3Argba%28255%2C255%2C255%2C1%29%21important%7D`}
+                    style={{
+                      position: "relative",
+                      left: "-110px",
+                      bottom: "-10px",
+                    }}
+                    allowFullScreen
+                  ></iframe>
+                </div>
               </div>
             </div>
           ) : (
             <>
               <span
-                className={`w-[30px] h-[59px] px-[4px] pr-[8px] flex flex-col justify-center  items-center  font-semibold box-small`}
+                className={`w-[30px] h-[59px] px-[4px] pr-[8px] flex flex-col justify-center  items-center  font-semibold box-small relative`}
               >
                 {channel.id}
                 {channel.name === "UR · Cristiano" ? (
@@ -149,7 +185,7 @@ const TwoChannelsFight = () => {
                       height="40"
                       //   style=""
                       frameBorder="0"
-                      className="giphy-embed"
+                      className="giphy-embed absolute -bottom-2 -right-[3px]"
                       allowFullScreen
                     ></iframe>
                     <iframe
@@ -252,7 +288,7 @@ const TwoChannelsFight = () => {
                 )}
               </span>
               <div className="mx-0 px-0 w-[80px]">
-                <ImgComponent channelId={channel.channelId} />
+                <ImgComponent channelId={channel.channelId} old={true} />
               </div>
               <div className="overflow-hidden relative w-[140px]">
                 <iframe
@@ -276,6 +312,46 @@ const TwoChannelsFight = () => {
           )}
         </div>
       ))}
+      {/* giphy */}
+      <div className="w-full flex-1 flex justify-center items-center bg-[#BD10E0] h-[60px]">
+        {/* <iframe
+          src="https://giphy.com/embed/qsjIsc4x9eleuKSHIg"
+          width="50"
+          height="50"
+          // style=""
+          frameBorder="0"
+          class="giphy-embed"
+          allowFullScreen
+        ></iframe> */}
+        {/* <iframe
+          src="https://giphy.com/embed/J6OqFgsXl887SD2EkM"
+          width="100"
+          height="60"
+          // style=""
+          frameBorder="0"
+          class="giphy-embed"
+          allowFullScreen
+        ></iframe> */}
+        {/* like and subcribe giph */}
+        {/* <iframe
+          src="https://giphy.com/embed/XeXtOVyYF961jhiPbt"
+          width="100"
+          height="60"
+          // style=""
+          // frameBorder="0"
+          class="giphy-embed"
+          allowFullScreen
+        ></iframe> */}
+        <iframe
+          src="https://giphy.com/embed/bTF4iiCmxK5qkH6rKF"
+          width="300"
+          height="50"
+          // style=""
+          frameBorder="0"
+          class="giphy-embed"
+          allowFullScreen
+        ></iframe>
+      </div>
     </div>
   );
 };

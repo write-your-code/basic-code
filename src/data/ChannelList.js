@@ -130,8 +130,8 @@ export const top50Channels = [
     channelId: "UCP6uH_XlsxrXwZQ4DlqbqPg",
   },
   { id: "25", name: "Tips Official", channelId: "UCJrDMFOdv1I2k8n9oK_V21w" },
-  { id: "26", name: "Canal KondZilla", channelId: "UCffDXn7ycAzwL2LDlbyWOTw" },
-  { id: "27", name: "Aaj Tak", channelId: "UCt4t-jeY85JegMlZ-E5UWtA" },
+  { id: "26", name: "Aaj Tak", channelId: "UCt4t-jeY85JegMlZ-E5UWtA" },
+  { id: "27", name: "Canal KondZilla", channelId: "UCffDXn7ycAzwL2LDlbyWOTw" },
   { id: "28", name: "A4", channelId: "UC2tsySbe9TNrI-xh2lximHA" },
   {
     id: "29",
@@ -170,9 +170,9 @@ export const top50Channels = [
     name: "Billion Surprise Toys",
     channelId: "UCRx3mKNUdl8QE06nEug7p6Q",
   },
-  { id: "46", name: "ARY Digital HD", channelId: "UC4JCksJF76g_MdzPVBJoC3Q" },
-  { id: "47", name: "Mark Rober", channelId: "UCY1kMZp36IQSyNx_9h4mpCg" },
-  { id: "48", name: "김프로KIMPRO", channelId: "UCiVs2pnGW5mLIc1jS2nxhjg" },
+  { id: "46", name: "김프로KIMPRO", channelId: "UCiVs2pnGW5mLIc1jS2nxhjg" },
+  { id: "47", name: "ARY Digital HD", channelId: "UC4JCksJF76g_MdzPVBJoC3Q" },
+  { id: "48", name: "Mark Rober", channelId: "UCY1kMZp36IQSyNx_9h4mpCg" },
   { id: "49", name: "Fede Vigevani", channelId: "UCoQm-PeHC-cbJclKJYJ8LzA" },
   { id: "50", name: "PANDA BOI", channelId: "UC0Wju2yvRlfwqraLlz5152Q" },
 ];

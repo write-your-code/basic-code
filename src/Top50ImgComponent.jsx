@@ -12,7 +12,7 @@ import {
   One2One,
   top50Channels,
 } from "./data/ChannelList";
-const ImgComponent = ({ channelId }) => {
+const ImgComponent = ({ channelId, old = false }) => {
   const [data, setData] = useState({});
   const [img, setImg] = useState();
 
@@ -77,6 +77,24 @@ const ImgComponent = ({ channelId }) => {
     fetchChannelDetails();
   }, []);
 
-  return <img src={img} alt={"img"} className="object-contain card" />;
+  return old ? (
+    <img
+      src={
+        img ||
+        "https://yt3.ggpht.com/fxGKYucJAVme-Yz4fsdCroCFCrANWqw0ql4GYuvx8Uq4l_euNJHgE-w9MTkLQA805vWCi-kE0g=s88-c-k-c0x00ffffff-no-rj"
+      }
+      alt={"img"}
+      className="object-contain card"
+    />
+  ) : (
+    <img
+      src={
+        img ||
+        "https://yt3.ggpht.com/fxGKYucJAVme-Yz4fsdCroCFCrANWqw0ql4GYuvx8Uq4l_euNJHgE-w9MTkLQA805vWCi-kE0g=s88-c-k-c0x00ffffff-no-rj"
+      }
+      alt={"img"}
+      className="h-[50px] w-[50px] object-contain"
+    />
+  );
 };
 export default ImgComponent;

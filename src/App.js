@@ -6,7 +6,8 @@ import LiveSubThree from "./LiveSubThree";
 import LiveSubSwiper from "./LiveSubSwiper";
 import LiveCount from "./LiveCount";
 import RonaldovsBeast from "./RonaldoMrbeastMain";
-import Top50 from "./Top50SubsCountMaster";
+// import Top50 from "./Top50SubsCountMaster";
+import Top50 from "./Top50SubsCountMasterWithOwnData";
 function App() {
   const [list, setList] = useState(ChannelList);
   const [array, setArray] = useState(ChannelListForTop50);

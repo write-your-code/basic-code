@@ -9,6 +9,7 @@ import "./Live.css";
 import "odometer/themes/odometer-theme-default.css";
 import { ChannelListForTop50, top50Channels } from "./data/ChannelList";
 import TwoChannelsFight from "./TwoChannelsFight";
+import ImgComponent from "./Top50ImgComponent";
 const LiveSubCountAll = (
   {
     //   id,
@@ -94,9 +95,9 @@ const LiveSubCountAll = (
         {top50Channels.map((channel) => (
           // 64 for ie and 59 for chrome
           // 17-9 => 54 was height width was auto for ie h=52.2 width=254
-          <div className="h-[52.65px] w-[260px] overflow-hidden flex gap-[0px] bg-white justify-center items-center relative">
+          <div className="h-[52.65px] w-[260px] overflow-hidden flex gap-[0px] bg-white justify-start items-center relative">
             <span
-              className={`h-full text-[14px] w-[60px] font-medium py-[0px] mx-[0px] flex flex-col justify-center items-center overflow-hidden  ${
+              className={`h-full text-[14px] w-[30px] font-medium py-[0px] px-1 flex flex-col justify-center items-center overflow-hidden  ${
                 // className={`h-full w-[34px] px-[4px] pr-[8px] flex flex-col justify-center  items-center  font-semibold ${
                 Number(channel.id) === 1 ||
                 Number(channel.id) === 2 ||
@@ -260,21 +261,36 @@ const LiveSubCountAll = (
               )}
               {channel.name === "김프로KIMPRO" ? <span>🔥</span> : ""}
             </span>
-            <iframe
-              height="90px"
-              width="240px"
-              // style={{
-              //   height: "60px",
-              //   overflow: "hidden",
-              //   backgroundColor: "red",
-              // }}
-              frameborder="0"
-              src={`https://socialcounts.org/youtube-live-subscriber-count/${channel.channelId}/embed?style=.odoParrent%7Bfont-size%3A18px%7Dbody%7Bbackground-color%3Argba%28255%2C255%2C255%2C1%29%21important%7D.title%7Bfont-size%3A20px%7D.odoParrent%7Bcolor%3A+rgba%280%2C0%2C0%2C1%29%7D.title%7Bcolor%3A+rgba%280%2C0%2C0%2C1%29%7D.title%7Bfont-size%3A16px%7D`}
-              // src={`https://socialcounts.org/youtube-live-subscriber-count/${channel.channelId}/embed?style=.odoParrent%7Bfont-size%3A20px%7Dbody%7Bbackground-color%3Argba%2882%2C78%2C183%2C1%29%21important%7D.title%7Bfont-size%3A20px%7D.odoParrent%7Bcolor%3A+rgba%280%2C0%2C0%2C1%29%7D.title%7Bcolor%3A+rgba%280%2C0%2C0%2C1%29%7D`}
-              // https://socialcounts.org/youtube-live-subscriber-count/UCq-Fj5jknLsUf-MWSy4_brA/embed?style=.title%7Bfont-size%3A18px%7D
-              // https://socialcounts.org/youtube-live-subscriber-count/UCq-Fj5jknLsUf-MWSy4_brA/embed?style=.odoParrent%7Bfont-size%3A20px%7D.title%7Bfont-size%3A18px%7D/
-              allowFullScreen
-            ></iframe>
+            <ImgComponent channelId={channel.channelId} />
+            <div className="flex flex-col relative">
+              <div className="absolute -top-[5px] left-[6px] z-10">
+                <span className="text-nowrap text-sm text-gray-900">
+                  {channel.name}
+                </span>
+              </div>
+              <div className="h-[25px] w-[130px] mt-3 overflow-hidden relative">
+                <iframe
+                  height="90px"
+                  width="240px"
+                  // style={{
+                  //   height: "60px",
+                  //   overflow: "hidden",
+                  //   backgroundColor: "red",
+                  // }}
+                  frameborder="0"
+                  src={`https://socialcounts.org/youtube-live-subscriber-count/${channel.channelId}/embed?style=.odoParrent%7Bfont-size%3A18px%7Dbody%7Bbackground-color%3Argba%28255%2C255%2C255%2C1%29%21important%7D.title%7Bfont-size%3A20px%7D.odoParrent%7Bcolor%3A+rgba%280%2C0%2C0%2C1%29%7D.title%7Bcolor%3A+rgba%280%2C0%2C0%2C1%29%7D.title%7Bfont-size%3A16px%7D`}
+                  style={{
+                    position: "absolute",
+                    left: "-70px",
+                    bottom: "-25px",
+                  }}
+                  // src={`https://socialcounts.org/youtube-live-subscriber-count/${channel.channelId}/embed?style=.odoParrent%7Bfont-size%3A20px%7Dbody%7Bbackground-color%3Argba%2882%2C78%2C183%2C1%29%21important%7D.title%7Bfont-size%3A20px%7D.odoParrent%7Bcolor%3A+rgba%280%2C0%2C0%2C1%29%7D.title%7Bcolor%3A+rgba%280%2C0%2C0%2C1%29%7D`}
+                  // https://socialcounts.org/youtube-live-subscriber-count/UCq-Fj5jknLsUf-MWSy4_brA/embed?style=.title%7Bfont-size%3A18px%7D
+                  // https://socialcounts.org/youtube-live-subscriber-count/UCq-Fj5jknLsUf-MWSy4_brA/embed?style=.odoParrent%7Bfont-size%3A20px%7D.title%7Bfont-size%3A18px%7D/
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </div>
           </div>
         ))}
       </div>
