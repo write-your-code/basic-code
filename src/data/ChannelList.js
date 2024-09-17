@@ -149,10 +149,10 @@ export const top50Channels = [
     channelId: "UCrnQFuUabBHaw-BRhPo8xEA",
   },
   { id: "32", name: "Wave Music", channelId: "UC22nIfOTM7KLIQuFGMKzQbg" },
-  { id: "33", name: "Movieclips", channelId: "UC3gNmTGu-TTbFPpfSs5kNkg" },
-  { id: "34", name: "Toys and Colors", channelId: "UCgFXm4TI8htWmCyJ6cVPG_A" },
-  { id: "35", name: "EminemMusic", channelId: "UCfM3zsQsOnfWNUppiycmBuw" },
-  { id: "36", name: "UR · Cristiano", channelId: "UCtxD0x6AuNNqdXO9Wp5GHew" },
+  { id: "33", name: "Toys and Colors", channelId: "UCgFXm4TI8htWmCyJ6cVPG_A" },
+  { id: "34", name: "Movieclips", channelId: "UC3gNmTGu-TTbFPpfSs5kNkg" },
+  { id: "35", name: "UR · Cristiano", channelId: "UCtxD0x6AuNNqdXO9Wp5GHew" },
+  { id: "36", name: "EminemMusic", channelId: "UCfM3zsQsOnfWNUppiycmBuw" },
   { id: "37", name: "Sony Music India", channelId: "UC56gTxNs4f9xZ7Pa2i5xNzg" },
   { id: "38", name: "YRF", channelId: "UCbTLwN10NoCU4WDzLf1JMOA" },
   { id: "39", name: "Dude Perfect", channelId: "UCRijo3ddMTht_IHyNSNXpNQ" },
@@ -178,7 +178,8 @@ export const top50Channels = [
 ];
 
 export const One2One = [
-  { id: "35", name: "EminemMusic", channelId: "UCfM3zsQsOnfWNUppiycmBuw" },
+  { id: "33", name: "Toys and Colors", channelId: "UCgFXm4TI8htWmCyJ6cVPG_A" },
+  { id: "34", name: "Movieclips", channelId: "UC3gNmTGu-TTbFPpfSs5kNkg" },
   { id: "0", name: "vs", channelId: "vs" },
-  { id: "36", name: "UR · Cristiano", channelId: "UCtxD0x6AuNNqdXO9Wp5GHew" },
+  { id: "35", name: "UR · Cristiano", channelId: "UCtxD0x6AuNNqdXO9Wp5GHew" },
 ];
