@@ -83,6 +83,11 @@ const LiveSubCountAll = (
 
   useEffect(() => {
     // fetchChannelDetails();
+    // const iframe = document.getElementById("my");
+    // iframe.style.width = "500px";
+    // iframe.style.height = "300px";
+    // iframe.style.border = "none";
+    // iframe.style.backgroundColor = "#f0f0f0";
   }, []);
 
   return (
@@ -263,6 +268,7 @@ const LiveSubCountAll = (
             <iframe
               height="90px"
               width="240px"
+              id="my"
               // style={{
               //   height: "60px",
               //   overflow: "hidden",

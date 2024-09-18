@@ -45,31 +45,31 @@ export default function Counter() {
     countdownTimer();
   });
   return (
-    <div className="px-2 py-1 bg-white flex justify-center items-center relative box-3">
+    <div className="px-2 py-1 bg-transparent text-white flex justify-center items-center relative box-counter">
       {/* <img src="/clock.gif" alt="" className="w-6 absolute" /> */}
       <div className="relative ml-1 mx-2 flex flex-col justify-center items-center">
-        <span className="text-2xl font-bold text-gray-700">
+        <span className="text-xl mr-1 font-semibold text-white">
           {countdownTime.countdownDays} :
         </span>
-        <i className="text-md font-bold text-gray-700">Days</i>
+        <i className="text-md font-semibold text-white">Days</i>
       </div>
       <div className="relative mx-2 flex flex-col justify-center items-center">
-        <span className="text-2xl font-bold text-gray-700">
+        <span className="text-xl mr-1 font-semibold text-white">
           {countdownTime.countdownHours} :
         </span>
-        <i className="text-md font-bold text-gray-700">Hours</i>
+        <i className="text-md font-semibold text-white">Hours</i>
       </div>
       <div className="relative mx-2 flex flex-col justify-center items-center">
-        <span className="text-2xl font-bold text-gray-700">
+        <span className="text-xl mr-1 font-semibold text-white">
           {countdownTime.countdownMinutes} :
         </span>
-        <i className="text-md font-bold text-gray-700">Mins</i>
+        <i className="text-md font-semibold text-white">Mins</i>
       </div>
       <div className="relative mx-2 flex flex-col justify-center items-center">
-        <span className="text-2xl font-bold text-gray-700">
+        <span className="text-xl mr-1 font-semibold text-white">
           {countdownTime.countdownSeconds}
         </span>
-        <i className="text-md font-bold text-gray-700">Secs</i>
+        <i className="text-md font-semibold text-white">Secs</i>
       </div>
     </div>
   );

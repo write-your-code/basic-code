@@ -183,3 +183,13 @@ export const One2One = [
   { id: "0", name: "vs", channelId: "vs" },
   { id: "35", name: "UR · Cristiano", channelId: "UCtxD0x6AuNNqdXO9Wp5GHew" },
 ];
+
+export const newsRonaldo = [
+  "Cristiano Ronaldo is the world's most popular person on social media with some 1 billion followers and now he's raised the bar even higher.",
+  "After uploading the first video on 21 August, the Ronaldo's channel reached one million subscribers in just an hour and a half, making it the fastest to do so on the platform",
+  "Georgina Rodríguez is the first guest on the channel, although the footballer intends to invite more people.",
+  "US youtuber MrBeast is the most followed on YouTube, with 308 million subscribers.",
+  "Cristiano Ronaldo's Instagram page now has 15 million followers, which is 12 times more than his Twitter followers.",
+  "Ronaldo has the highest number of followers on Twitter, with 1.1 million followers, compared to 96,000 on Instagram.",
+  "Ronaldo has been on Twitter since 2009 and his Instagram since 2010.",
+];

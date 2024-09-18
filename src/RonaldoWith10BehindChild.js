@@ -4,7 +4,7 @@ import { getChannelDetails, getBeastDetails } from "./api/youtube";
 import { ArrowUpRightIcon } from "@heroicons/react/20/solid";
 import axios from "axios";
 import Odometer from "react-odometerjs";
-import "odometer/themes/odometer-theme-default.css";
+import "odometer/themes/odometer-theme-car.css";
 const LiveSubCountAll3D = ({
   id,
   diff = 0,
@@ -64,7 +64,7 @@ const LiveSubCountAll3D = ({
     }
   };
   useEffect(() => {
-    const intervalId = setInterval(fetchStats, 1000); // Fetch every 3 seconds
+    const intervalId = setInterval(fetchStats, 300); // Fetch every 3 seconds
     return () => {
       clearInterval(intervalId);
     }; // Clean up on unmount
@@ -117,7 +117,7 @@ const LiveSubCountAll3D = ({
                 alt=""
                 className="w-8 h-8 border-2 border-white rounded-full"
               />
-              <span className="text-[10px] absolute -top-[8px] flex gap-1">
+              <span className="text-[10px] absolute -top-[8px] flex gap-1 z-50">
                 <span className="text-[8px]">#{index}</span>
                 <span className="">Gap</span>
                 <span className="text-[8px]">#{rank}</span>

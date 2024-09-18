@@ -14,7 +14,7 @@ import { EffectCoverflow, Pagination } from "swiper/modules";
 import LiveSubCountAll from "./LiveSubCountNextCount";
 import Child from "./RonaldoWith10BehindChild";
 import Counter from "./counter";
-import { top50Channels } from "./data/ChannelList";
+import { newsRonaldo, top50Channels } from "./data/ChannelList";
 
 export default function LiveSubThree() {
   const [diff, setDiff] = useState(0);
@@ -71,8 +71,26 @@ export default function LiveSubThree() {
         ))}
       </div>
       {/* </Swiper> */}
-      <div className="absolute top-0 right-0 rounded-r-xl rounded-l-xl">
-        <Counter />
+      <div className="absolute top-0 right-0 left-0 w-full rounded-r-xl rounded-l-xl flex justify-start items-start max-h-[60px]">
+        <div id="animated-text-strip" className="w-[78%]">
+          {/* <span class="marquee">🔥 Text length has to be equal&nbsp;❕</span> */}
+          <div className="wrapper w-full bg-black h-[70px] flex items-center justify-center">
+            <div class="marquee text-xl">
+              <p class="marquee text-white">
+                {newsRonaldo.map((news, i) => (
+                  <>
+                    {i % 2 === 0 ? "✅" : "👍"} {news}❕{".........."}
+                  </>
+                ))}
+              </p>
+            </div>
+          </div>
+
+          {/* <span class="marquee">👍 Text length has to be equal&nbsp;❕</span> */}
+        </div>
+        <div className="w-[22%]">
+          <Counter />
+        </div>
       </div>
     </>
   );
