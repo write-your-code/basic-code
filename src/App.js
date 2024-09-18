@@ -6,6 +6,7 @@ import LiveSubThree from "./LiveSubThree";
 import LiveSubSwiper from "./LiveSubSwiper";
 import LiveCount from "./LiveCount";
 import RonaldovsBeast from "./RonaldoMrbeastMain";
+import RonalWith10Behind from "./RonaldoWith10Behind";
 // import Top50 from "./Top50SubsCountMaster";
 import Top50 from "./Top50SubsCountMasterWithOwnData";
 function App() {
@@ -52,8 +53,12 @@ function App() {
           <button className="bg-red-400 p-2 m-2" onClick={() => setLayout(6)}>
             Top 50 NEW
           </button>
+          <button className="bg-red-400 p-2 m-2" onClick={() => setLayout(7)}>
+            Ronaldo with 10 Behind
+          </button>
         </div>
       )}
+      {layout === 7 && <RonalWith10Behind />}
       {layout === 6 && <Top50 />}
       {layout === 5 && <RonaldovsBeast />}
       {layout === 4 && (

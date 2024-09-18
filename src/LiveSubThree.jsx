@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -14,15 +14,18 @@ import { EffectCoverflow, Pagination } from "swiper/modules";
 import LiveSubCountAll from "./LiveSubCountNextCount";
 import LiveSubCountAll3D from "./LiveSubCountNextCount3D";
 import Counter from "./counter";
+import { top50Channels } from "./data/ChannelList";
 
 export default function LiveSubThree() {
   const [diff, setDiff] = useState(0);
+  const [dataArray, setDataArray] = useState([]);
   const data = [
     "UCRijo3ddMTht_IHyNSNXpNQ",
     // "UCq-Fj5jknLsUf-MWSy4_brA",
     "UCqECaJ8Gagnn7YCbPEzWH6g",
     "UCtxD0x6AuNNqdXO9Wp5GHew",
   ];
+
   let rank = 38;
   return (
     <>
@@ -30,7 +33,7 @@ export default function LiveSubThree() {
         // effect={"coverflow"}
         grabCursor={true}
         centeredSlides={true}
-        slidesPerView={"auto"}
+        slidesPerView={"10"}
         coverflowEffect={{
           rotate: 50,
           stretch: 0,
@@ -42,7 +45,8 @@ export default function LiveSubThree() {
         modules={[EffectCoverflow, Pagination]}
         className="mySwiper"
       >
-        {data.map((channel, i) => (
+        {data?.map((channel, i) => (
+          // old
           <SwiperSlide>
             <LiveSubCountAll3D
               //   id={"UCtxD0x6AuNNqdXO9Wp5GHew"}

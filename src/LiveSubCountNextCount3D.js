@@ -84,7 +84,7 @@ const LiveSubCountAll3D = ({
     }
   };
   useEffect(() => {
-    const intervalId = setInterval(fetchStats, 1000); // Fetch every 3 seconds
+    const intervalId = setInterval(fetchStats, 3000); // Fetch every 3 seconds
     // const timeoutId = setTimeout(() => setValue(data.subcount), 300);
     return () => {
       clearInterval(intervalId);
@@ -99,12 +99,6 @@ const LiveSubCountAll3D = ({
       <div
         // className="flex flex-col mx-1 bg-gradient-to-b from-orange-400 rounded-lg to-red-500 dark:from-orange-400:to-red-500 px-2 py-[1px] text-2xl items-center h-[100%]"
         className="flex flex-col mx-1 bg-gradient-to-b bg-black border-4 border-gray-100 rounded-lg px-2 py-[1px] text-2xl items-center h-[100%] pb-4"
-        ref={boxRef}
-        style={{
-          "--angle": "0deg",
-          "--border-color": "linear-gradient(var(--angle), #070707, #687aff)",
-          "--bg-color": "linear-gradient(#131219, #131219)",
-        }}
       >
         <span className="text-xl text-white font-bold w-3">#{index}</span>
         <img
