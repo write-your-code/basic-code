@@ -85,7 +85,11 @@ export const ChannelListForTop50 = [
   { id: 50, channelId: "UCtxD0x6AuNNqdXO9Wp5GHew" },
 ];
 export const top50Channels = [
-  { id: "1", name: "MrBeast", channelId: "UCX6OQ3DkcsbYNE6H8uQQuVA" },
+  {
+    id: "1",
+    name: "MrBeast",
+    channelId: "UCX6OQ3DkcsbYNE6H8uQQuVA",
+  },
   { id: "2", name: "T-Series", channelId: "UCq-Fj5jknLsUf-MWSy4_brA" },
   {
     id: "3",
@@ -107,7 +111,12 @@ export const top50Channels = [
     name: "ChuChu TV Nursery Rhymes & Kids Songs",
     channelId: "UCBnZ16ahKA2DZ_T5W0FPUXg",
   },
-  { id: "15", name: "Stokes Twins", channelId: "UCbp9MyKCTEww4CxEzc_Tp0Q" },
+  {
+    id: "15",
+    name: "Stokes Twins",
+    channelId: "UCbp9MyKCTEww4CxEzc_Tp0Q",
+    hot: true,
+  },
   { id: "16", name: "Zee TV", channelId: "UCppHT7SZKKvar4Oc9J4oljQ" },
   { id: "17", name: "5-Minute Crafts", channelId: "UC295-Dw_tDNtZXFeAPAW6Aw" },
   { id: "18", name: "BANGTANTV", channelId: "UCLkAepWjdylmXSltofFvsYQ" },
@@ -149,9 +158,14 @@ export const top50Channels = [
     channelId: "UCrnQFuUabBHaw-BRhPo8xEA",
   },
   { id: "32", name: "Wave Music", channelId: "UC22nIfOTM7KLIQuFGMKzQbg" },
-  { id: "33", name: "Toys and Colors", channelId: "UCgFXm4TI8htWmCyJ6cVPG_A" },
-  { id: "34", name: "Movieclips", channelId: "UC3gNmTGu-TTbFPpfSs5kNkg" },
-  { id: "35", name: "UR · Cristiano", channelId: "UCtxD0x6AuNNqdXO9Wp5GHew" },
+  {
+    id: "33",
+    name: "UR · Cristiano",
+    channelId: "UCtxD0x6AuNNqdXO9Wp5GHew",
+    play: true,
+  },
+  { id: "34", name: "Toys and Colors", channelId: "UCgFXm4TI8htWmCyJ6cVPG_A" },
+  { id: "35", name: "Movieclips", channelId: "UC3gNmTGu-TTbFPpfSs5kNkg" },
   { id: "36", name: "EminemMusic", channelId: "UCfM3zsQsOnfWNUppiycmBuw" },
   { id: "37", name: "Sony Music India", channelId: "UC56gTxNs4f9xZ7Pa2i5xNzg" },
   { id: "38", name: "YRF", channelId: "UCbTLwN10NoCU4WDzLf1JMOA" },
@@ -161,27 +175,45 @@ export const top50Channels = [
   { id: "42", name: "Alan Chikin Chow", channelId: "UC5gxP-2QqIh_09djvlm9Xcg" },
   {
     id: "43",
+    name: "김프로KIMPRO",
+    channelId: "UCiVs2pnGW5mLIc1jS2nxhjg",
+    play: true,
+    hot: true,
+  },
+  {
+    id: "44",
     name: "LooLoo Kids - Nursery Rhymes and Children's Songs",
     channelId: "UC4NALVCmcmL5ntpV0thoH6w",
   },
-  { id: "44", name: "Marshmello", channelId: "UCEdvpU2pFRCVqU6yIPyTpMQ" },
+  { id: "45", name: "Marshmello", channelId: "UCEdvpU2pFRCVqU6yIPyTpMQ" },
   {
-    id: "45",
+    id: "46",
     name: "Billion Surprise Toys",
     channelId: "UCRx3mKNUdl8QE06nEug7p6Q",
   },
-  { id: "46", name: "김프로KIMPRO", channelId: "UCiVs2pnGW5mLIc1jS2nxhjg" },
   { id: "47", name: "ARY Digital HD", channelId: "UC4JCksJF76g_MdzPVBJoC3Q" },
   { id: "48", name: "Mark Rober", channelId: "UCY1kMZp36IQSyNx_9h4mpCg" },
   { id: "49", name: "Fede Vigevani", channelId: "UCoQm-PeHC-cbJclKJYJ8LzA" },
-  { id: "50", name: "PANDA BOI", channelId: "UC0Wju2yvRlfwqraLlz5152Q" },
+  {
+    id: "50",
+    name: "KL BRO Biju Rithvik",
+    channelId: "UCL5nlHWXVLeOsSjKH2fhmsg",
+    play: true,
+    hot: true,
+  },
+
+  {
+    id: "51",
+    name: "PANDA BOI",
+    channelId: "UC0Wju2yvRlfwqraLlz5152Q",
+  },
 ];
 
 export const One2One = [
   // { id: "33", name: "Toys and Colors", channelId: "UCgFXm4TI8htWmCyJ6cVPG_A" },
-  { id: "34", name: "Movieclips", channelId: "UC3gNmTGu-TTbFPpfSs5kNkg" },
+  { id: "32", name: "Wave Music", channelId: "UC22nIfOTM7KLIQuFGMKzQbg" },
   { id: "0", name: "vs", channelId: "vs" },
-  { id: "35", name: "UR · Cristiano", channelId: "UCtxD0x6AuNNqdXO9Wp5GHew" },
+  { id: "33", name: "UR · Cristiano", channelId: "UCtxD0x6AuNNqdXO9Wp5GHew" },
 ];
 
 export const newsRonaldo = [

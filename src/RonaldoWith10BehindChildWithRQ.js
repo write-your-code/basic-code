@@ -5,6 +5,20 @@ import { ArrowUpRightIcon } from "@heroicons/react/20/solid";
 import axios from "axios";
 import Odometer from "react-odometerjs";
 import "odometer/themes/odometer-theme-minimal.css";
+import {
+  QueryClient,
+  QueryClientProvider,
+  useQuery,
+} from "@tanstack/react-query";
+
+const retrievePosts = async () => {
+  const response = await axios.get(
+    "https://jsonplaceholder.typicode.com/posts"
+  );
+
+  return response.data;
+};
+
 const LiveSubCountAll3D = ({
   id,
   diff = 0,
@@ -19,39 +33,66 @@ const LiveSubCountAll3D = ({
 }) => {
   const [data, setData] = useState({});
   const [value, setValue] = useState(0);
+  const [counter, setCounter] = useState(0);
   const [views, setViews] = useState(0);
   const [diffSub, setDiffSub] = useState(0);
   // const [opponenetImages, setOpponenetImages] = useState([]);
   // for border animation
-  let ronaldoChannelId = "UCtxD0x6AuNNqdXO9Wp5GHew";
-  const fetchStats = async () => {
-    try {
-      const responseEstSub = await axios.get(
+
+  // use sueQuery
+  // const { isLoading, error, code } = useQuery({
+  //   queryKey: ["repoData"],
+  //   queryFn: () =>
+  //     axios.get(
+  //       `https://api.socialcounts.org/youtube-live-subscriber-count/${id}`
+  //     ),
+  //   // refetchInterval: 5000,
+  // });
+  // const DisplayPosts = () => {
+
+  const {
+    data: code,
+    error,
+    isLoading,
+  } = useQuery({
+    queryKey: ["postsData"],
+    queryFn: async () => {
+      const res = await axios.get(
         `https://api.socialcounts.org/youtube-live-subscriber-count/${id}`
       );
+      return res.data;
+    },
+    // refetchOnWindowFocus: true,
+    refetchInterval: 300,
+  });
 
-      const dataEst = responseEstSub.data;
-      // console.log("estData is: ", dataEst);
+  // console.log("Dataarray is: ", { code, error, isLoading });
+  const FetchStats = (code) => {
+    if (code) {
+      const dataEst = code;
       setValue(dataEst.est_sub);
-      setViews(dataEst.table[0].count);
+      // setViews(dataEst.table[0].count);
       if (id === "UCtxD0x6AuNNqdXO9Wp5GHew") {
-        setDiff && setDiff(dataEst.est_sub);
+        // setDiff && setDiff(dataEst.est_sub);
       }
-      setSubList &&
-        setSubList((current) => {
-          current.sort((a, b) => {
-            return b - a;
-          });
-          current.filter((value, i) => current.indexOf(value) === i);
-          return [...current, dataEst.est_sub];
-        });
-      if (id === "UCtxD0x6AuNNqdXO9Wp5GHew") setRank(index);
+      // setSubList &&
+      //   setSubList((current) => {
+      //     current.sort((a, b) => {
+      //       return b - a;
+      //     });
+      //     current.filter((value, i) => current.indexOf(value) === i);
+      //     return [...current, dataEst.est_sub];
+      //   });
+      // if (id === "UCtxD0x6AuNNqdXO9Wp5GHew") setRank(index);
 
-      return data;
-    } catch (error) {
-      console.log(error);
+      // return data;
     }
   };
+
+  // } catch (error) {
+  //   console.log(error);
+  // }
+  // };
   const fetchChannelDetails = async () => {
     try {
       const response = await axios.get(
@@ -84,33 +125,41 @@ const LiveSubCountAll3D = ({
     }
   };
   useEffect(() => {
-    const intervalId = setInterval(fetchStats, 300); // Fetch every 3 seconds
-    if (opponenetImages.length > 0) {
-      // sort images
-      opponenetImages.sort((a, b) => a.id - b.id);
-      // remove duplicates
-      const mapFromImages = new Map(opponenetImages.map((c) => [c.id, c]));
+    const intervalId = setInterval(FetchStats(code), 300);
+    // const intervalId1 = setInterval(
+    //   setCounter((current) => current++),
+    //   30
+    // );
+    console.log("useeefeect caled!");
+    // Fetch every 3 seconds
+    // if (opponenetImages.length > 0) {
+    //   // sort images
+    //   opponenetImages.sort((a, b) => a.id - b.id);
+    //   // remove duplicates
+    //   const mapFromImages = new Map(opponenetImages.map((c) => [c.id, c]));
 
-      const uniqueImages = [...mapFromImages.values()];
+    //   const uniqueImages = [...mapFromImages.values()];
 
-      setOpponenetImages((current) => uniqueImages);
-      console.log("images in useeffect", opponenetImages);
-    }
+    //   setOpponenetImages((current) => uniqueImages);
+    //   console.log("images in useeffect", opponenetImages);
+    // }
 
     // console.log("images", opponenetImages);
     return () => {
       clearInterval(intervalId);
+      // clearInterval(intervalId1);
     }; // Clean up on unmount
-  }, []);
+    // FetchStats(code);
+  }, [code]);
 
   useEffect(() => {
     fetchChannelDetails();
   }, []);
   return (
-    <div className="flex flex-col mx-1 bg-gradient-to-b bg-black border-2 border-gray-100 rounded-lg px-0 text-xl items-center justify-start pb-1 h-[250px] relative mt-[10px]">
+    <div className="flex flex-col mx-1 bg-gradient-to-b bg-black border-2 border-gray-100 rounded-lg px-0 text-xl items-center justify-start pb-1 h-[250px] relative mt-[10px] overflow-hidden">
       <span className="text-md text-white font-bold">{index}</span>
       <img
-        className="w-full h-[110px] rounded-full object-contain"
+        className="w-full h-[120px] object-contain"
         src={
           data.userImg ||
           "https://yt3.ggpht.com/fxGKYucJAVme-Yz4fsdCroCFCrANWqw0ql4GYuvx8Uq4l_euNJHgE-w9MTkLQA805vWCi-kE0g=s88-c-k-c0x00ffffff-no-rj"
@@ -121,26 +170,7 @@ const LiveSubCountAll3D = ({
           {data.username || "MrBeast"}
         </p>
         {/* subscribers */}
-        {/* <Odometer value={value} /> */}
-        <div className="h-[25px] w-[130px] mt-0 ml-4 overflow-hidden relative">
-          <iframe
-            height="90px"
-            width="240px"
-            // style={{
-            //   height: "60px",
-            //   overflow: "hidden",
-            //   backgroundColor: "red",
-            // }}
-            frameborder="0"
-            src={`https://socialcounts.org/youtube-live-subscriber-count/${id}/embed?style=.odoParrent%7Bfont-size%3A18px%7Dbody%7Bbackground-color%3Argba%28255%2C255%2C255%2C0%29%21important%7D.title%7Bfont-size%3A20px%7D.odoParrent%7Bcolor%3A+rgba%28255%2C255%2C255%2C1%29%7D.title%7Bcolor%3A+rgba%280%2C0%2C0%2C1%29%7D.title%7Bfont-size%3A16px%7D`}
-            style={{
-              position: "absolute",
-              left: "-70px",
-              bottom: "-25px",
-            }}
-            allowFullScreen
-          ></iframe>
-        </div>
+        <Odometer value={value} />
         {/*videos and  views*/}
         <div className="flex justify-center w-full gap-2 mt-2">
           {/* total videos */}
@@ -158,7 +188,7 @@ const LiveSubCountAll3D = ({
         <div className="absolute bottom-0 w-full flex justify-center items-center">
           {id !== "UCtxD0x6AuNNqdXO9Wp5GHew" ? (
             <div
-              className={`flex gap-0 items-center justify-center ${
+              className={`flex gap-2 items-center justify-center ${
                 value - diff > 0
                   ? " bg-green-700"
                   : "bg-red-700 flex-row-reverse"
@@ -167,53 +197,23 @@ const LiveSubCountAll3D = ({
               <img
                 src={data.userImg}
                 alt=""
-                className={`w-9 h-9 border-2 border-white rounded-full ${
-                  value - diff > 0 ? "-mr-[2px]" : "-ml-[2px]"
-                }`}
+                className="w-8 h-8 border-2 border-white rounded-full"
               />
-
-              <span
-                className={`text-[10px] absolute -top-[8px] flex gap-1 z-50 ${
-                  value - diff > 0 ? "" : "flex-row-reverse"
-                }`}
-              >
+              <span className="text-[10px] absolute -top-[8px] flex gap-1 z-50">
                 <span className="text-[8px]">#{index}</span>
-                <span className="uppercase">Gap</span>
+                <span className="">Gap</span>
                 <span className="text-[8px]">#{rank}</span>
               </span>
-              {/* difference */}
-              <div
-                className="overflow-hidden w-[92px] h-[20px] z-500 "
-                // id="diff"
-              >
-                <iframe
-                  className="transition ease-in-out delay-50 hover:-translate-x-1 hover:scale-110 duration-200"
-                  height="60px"
-                  width="340px"
-                  frameborder="0"
-                  src={`https://socialcounts.org/compare/youtube-live-subscriber-count/${id}/youtube-live-subscriber-count/${ronaldoChannelId}/embed?style=body%7Bbackground-color%3Argba%28255%2C255%2C255%2C1%29%21important%7D
-                  .compareId_difference%7Bcolor%3Argba%28255%2C255%2C255%2C1%29%21important%7D`}
-                  style={{
-                    position: "relative",
-                    left: "-110px",
-                    bottom: "20px",
-                  }}
-                  allowFullScreen
-                ></iframe>
-              </div>
-              {/*  */}
-              {/* <Odometer value={value - diff} /> */}
+              <Odometer value={value - diff} />
               <img
                 src="https://yt3.ggpht.com/yKfa-GV-v_O-6jZKHwBuc2FX0Q5ths8OqYTOAmOwzVY0q3miZT0L-rUzve-M2QBdONcTYaEO_JI=s800-c-k-c0x00ffffff-no-rj"
                 alt=""
-                className={`w-9 h-9 border-2 border-white rounded-full ${
-                  value - diff > 0 ? "-ml-[2px]" : "-mr-[2px]"
-                }`}
+                className="w-8 h-8 border-2 border-white rounded-full"
               />
             </div>
           ) : id === "UCtxD0x6AuNNqdXO9Wp5GHew" ? (
-            opponenetImages.map((opponent, i) =>
-              opponent.id < index && i <= 6 ? (
+            opponenetImages.map((opponent) =>
+              opponent.id < index ? (
                 <img
                   src={opponent.userImg}
                   alt=""
@@ -229,7 +229,16 @@ const LiveSubCountAll3D = ({
         </div>
         {/* giph for ronaldo */}
         {id === "UCtxD0x6AuNNqdXO9Wp5GHew" ? (
-          <div className="absolute top-1 right-0 w-full h-full flex justify-between z-30 px-2">
+          <div className="absolute top-1 right-0 w-full flex justify-between z-30 px-2">
+            {/* <iframe
+                src="https://giphy.com/embed/8FGMuS6Bj4MyP1NA5h"
+                width="60"
+                height="60"
+                //   style="position:absolute"
+                frameBorder="0"
+                className="giphy-embed"
+                allowFullScreen
+              ></iframe> */}
             <iframe
               src="https://giphy.com/embed/2h2BsbOPzgE2pWaDDg"
               width="40"
@@ -245,18 +254,7 @@ const LiveSubCountAll3D = ({
               height="40"
               //   style=""
               frameBorder="0"
-              className="giphy-embed rounded-full"
-              allowFullScreen
-            ></iframe>
-            {/* versus gif */}
-
-            <iframe
-              src="https://giphy.com/embed/ueTiXK0OHzwMqkE9Qf"
-              width="50"
-              height="50"
-              // style=""
-              frameBorder="0"
-              class="giphy-embed absolute top-[35%] -left-[28px] bg-cyan-50 rounded-full"
+              className="giphy-embed bg-gray-100 rounded-full"
               allowFullScreen
             ></iframe>
           </div>

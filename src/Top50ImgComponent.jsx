@@ -1,15 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
-// import { getChannelDetails, getBeastDetails } from "./api/youtube";
-// import { getChannelDetailsB } from "../api/youtube-beast";
-import { ArrowUpRightIcon } from "@heroicons/react/20/solid";
 import axios from "axios";
-import Odometer from "react-odometerjs";
 import "./Live.css";
 // import { ChannelListForTop50 } from "./data/ChannelList";
-import "odometer/themes/odometer-theme-default.css";
 import {
-  ChannelListForTop50,
-  One2One,
   top50Channels,
 } from "./data/ChannelList";
 const ImgComponent = ({ channelId, old = false }) => {
@@ -65,17 +58,17 @@ const ImgComponent = ({ channelId, old = false }) => {
       console.log(error);
     }
   };
-  useEffect(() => {
-    // const intervalId = setInterval(fetchStats, 10000); // Fetch every 3 seconds
-    // const timeoutId = setTimeout(() => setValue(data.subcount), 300);
-    // return () => {
-    //   clearInterval(intervalId);
-    // }; // Clean up on unmount
-  }, []);
+  // useEffect(() => {
+  //   // const intervalId = setInterval(fetchStats, 10000); // Fetch every 3 seconds
+  //   // const timeoutId = setTimeout(() => setValue(data.subcount), 300);
+  //   // return () => {
+  //   //   clearInterval(intervalId);
+  //   // }; // Clean up on unmount
+  // }, []);
 
   useEffect(() => {
     fetchChannelDetails();
-  }, []);
+  }, [top50Channels]);
 
   return old ? (
     <img

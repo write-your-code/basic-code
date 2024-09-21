@@ -12,7 +12,7 @@ import "./App.css";
 // import required modules
 import { EffectCoverflow, Pagination } from "swiper/modules";
 import LiveSubCountAll from "./LiveSubCountNextCount";
-import Child from "./RonaldoWith10BehindChild";
+import Child from "./RonaldoWithAboveAllChild";
 // import Child from "./RonaldoWith10BehindChildWithRQ";
 import Counter from "./counter";
 import { newsRonaldo, top50Channels } from "./data/ChannelList";
@@ -48,15 +48,16 @@ export default function LiveSubThree() {
     setRank(ronaldoRank);
     const newData = top50Channels.filter((channel) => {
       if (
-        Number(channel.id) > Number(ronaldoRank) - 9 &&
-        Number(channel.id) <= Number(ronaldoRank)
+        Number(channel.id) <=
+        Number(ronaldoRank) + 3
+        // Number(channel.id) <= Number(ronaldoRank)
       )
         return channel;
-      if (
-        Number(channel.id) <= Number(ronaldoRank) + 1 &&
-        Number(channel.id) >= Number(ronaldoRank)
-      )
-        return channel;
+      // if (
+      //   Number(channel.id) <= Number(ronaldoRank) + 1 &&
+      //   Number(channel.id) >= Number(ronaldoRank)
+      // )
+      // return channel;
       // else return;
     });
     console.log(newData);
@@ -69,8 +70,8 @@ export default function LiveSubThree() {
   // let rank = 38;
   return (
     <>
-      <ThreeChannelsFight />
-      <div className="grid grid-cols-5 w-full h-full mt-[70px]">
+      {/* <ThreeChannelsFight /> */}
+      <div className="flex flex-col flex-wrap w-full h-screen">
         {dataArray.map((channel, i) => (
           // <SwiperSlide>
           // <QueryClientProvider client={queryClient}>
@@ -92,28 +93,6 @@ export default function LiveSubThree() {
           // </QueryClientProvider>
           // </SwiperSlide>
         ))}
-      </div>
-      {/* </Swiper> */}
-      <div className="absolute top-0 right-0 left-0 w-full rounded-r-xl rounded-l-xl flex justify-start items-start max-h-[60px]">
-        <div id="animated-text-strip" className="w-[78%]">
-          {/* <span class="marquee">🔥 Text length has to be equal&nbsp;❕</span> */}
-          <div className="wrapper w-full bg-black h-[70px] flex items-center justify-center">
-            <div class="marquee text-xl">
-              <p class="marquee text-white">
-                {newsRonaldo.map((news, i) => (
-                  <>
-                    {i % 2 === 0 ? "✅" : "👍"} {news}❕{".........."}
-                  </>
-                ))}
-              </p>
-            </div>
-          </div>
-
-          {/* <span class="marquee">👍 Text length has to be equal&nbsp;❕</span> */}
-        </div>
-        {/* <div className="w-[22%]">
-          <Counter />
-        </div> */}
       </div>
     </>
   );

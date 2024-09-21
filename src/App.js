@@ -7,8 +7,10 @@ import LiveSubSwiper from "./LiveSubSwiper";
 import LiveCount from "./LiveCount";
 import RonaldovsBeast from "./RonaldoMrbeastMain";
 import RonalWith10Behind from "./RonaldoWith10Behind";
+import RonalAboveAll from "./RonaldoWithAboveAll";
 // import Top50 from "./Top50SubsCountMaster";
 import Top50 from "./Top50SubsCountMasterWithOwnData";
+
 function App() {
   const [list, setList] = useState(ChannelList);
   const [array, setArray] = useState(ChannelListForTop50);
@@ -19,9 +21,9 @@ function App() {
   return (
     <div
       className={`
-      App bg-[#15202b] ${layout === 2 ? "bg-gray-200" : "bg-black"} ${
-        layout === 5 ? "bg-transparent" : "bg-black"
-      } pt-[0px]`}
+      App bg-[#15202b] ${
+        layout === 2 || layout === 8 ? "bg-gray-200" : "bg-black"
+      } ${layout === 5 ? "bg-transparent" : "bg-black"} pt-[0px]`}
     >
       {/* <LiveSubCount /> */}
       {/* <Counter /> */}
@@ -56,8 +58,12 @@ function App() {
           <button className="bg-red-400 p-2 m-2" onClick={() => setLayout(7)}>
             Ronaldo with 10 Behind
           </button>
+          <button className="bg-red-400 p-2 m-2" onClick={() => setLayout(8)}>
+            Ronaldo Above All
+          </button>
         </div>
       )}
+      {layout === 8 && <RonalAboveAll />}
       {layout === 7 && <RonalWith10Behind />}
       {layout === 6 && <Top50 />}
       {layout === 5 && <RonaldovsBeast />}

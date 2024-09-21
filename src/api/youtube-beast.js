@@ -2,19 +2,18 @@ import axios from "axios";
 
 const API_KEY = "AIzaSyAsjR5dwCZjkOkSDsEQQdcYfqch3bImifs";
 // const CHANNEL_ID = "UCdMBvHugZtN_FZ6oh8L5BHA";
-const CHANNEL_ID = "@BLFootballTalks";
+const id = "UCdMBvHugZtN_FZ6oh8L5BHA";
+// const CHANNEL_ID = "@BLFootballTalks";
 const forHandle = "@MrBeast";
 
 export const getChannelDetailsB = async () => {
   const response = await axios.get(
-    `https://www.googleapis.com/youtube/v3/channels?part=statistics,snippet&forHandle=${forHandle}&key=${API_KEY}`
+    `https://api.socialcounts.org/youtube-live-subscriber-count/${id}`
+    // `https://www.googleapis.com/youtube/v3/channels?part=statistics,snippet&forHandle=${forHandle}&key=${API_KEY}`
+    // `https://www.googleapis.com/youtube/v3/channels?part=statistics,snippet&forHandle=${forHandle}&key=${API_KEY}`
   );
 
-  const data = response.data.items[0];
+  const data = response.data;
 
-  return {
-    subscriberCount: data.statistics.subscriberCount,
-    channelName: data.snippet.title,
-    profilePicture: data.snippet.thumbnails.default.url,
-  };
+  return data;
 };

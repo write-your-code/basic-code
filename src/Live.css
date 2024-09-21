@@ -3,6 +3,9 @@
   width: 40px !important;
   height: 20px !important;
 } */
+* {
+  box-sizing: border-box;
+}
 .box-small {
   /* width: 60vmin; */
   /* height: 50vmin; */
@@ -277,14 +280,16 @@
 } */
 
 #diff::before {
-  content: "Gap";
+  content: "sub 🔥 Gap";
   position: absolute;
-  background: #bd10e0;
+  text-transform: uppercase;
+  /* background: #bd10e0; */
   width: 100%;
-  height: 30px;
-  top: 0px;
+  height: 20px;
+  top: 15px;
+  border-bottom: 3px solid #f03 solid;
   z-index: 1;
-  font-size: 12px;
+  font-size: 10px !important;
   text-align: center;
   color: azure;
 }
@@ -345,5 +350,153 @@
   }
   100% {
     transform: translate3d(-50%, 0, 0);
+  }
+}
+/* zigzag animation */
+.gallery {
+  --z: 32px; /* control the zig-zag  */
+  --s: 360px; /* control the size */
+  --g: 8px; /* control the gap */
+
+  display: grid;
+  gap: var(--g);
+  width: calc(2 * var(--s) + var(--g));
+  grid-auto-flow: column;
+}
+.gallery > div {
+  width: 0;
+  min-width: calc(100% + var(--z) / 2);
+  height: var(--s);
+  object-fit: cover;
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+  cursor: pointer;
+  transition: 0.5s;
+}
+.gallery > div:hover {
+  width: calc(var(--s) / 2);
+}
+.gallery > div:nth-child(2) {
+  place-self: start;
+  clip-path: polygon(calc(2 * var(--z)) 0, 100% 0, 100% 100%, 0 100%);
+  --mask: conic-gradient(
+      from -135deg at right,
+      #0000,
+      #000 1deg 89deg,
+      #0000 90deg
+    )
+    50%/100% calc(2 * var(--z)) repeat-y;
+}
+.gallery > img:last-child {
+  place-self: end;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 2 * var(--z)) 100%, 0 100%);
+  --mask: conic-gradient(
+      from 45deg at left,
+      #0000,
+      #000 1deg 89deg,
+      #0000 90deg
+    )
+    50% calc(50% - var(--z)) / 100% calc(2 * var(--z)) repeat-y;
+}
+
+/* border animation */
+/* @import url("https://fonts.googleapis.com/css?family=Raleway:400"); */
+
+* {
+  box-sizing: border-box;
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 90deg;
+  inherits: true;
+}
+
+@property --gradX {
+  syntax: "<percentage>";
+  initial-value: 50%;
+  inherits: true;
+}
+
+@property --gradY {
+  syntax: "<percentage>";
+  initial-value: 0%;
+  inherits: true;
+}
+:root {
+  --d: 6500ms;
+  --angle: 90deg;
+  --gradX: 100%;
+  --gradY: 50%;
+  --c1: rgba(168, 239, 255, 1);
+  --c2: rgba(168, 239, 255, 0.1);
+}
+
+.wrapper {
+  /* 	min-width: min(40rem, 100%); */
+}
+
+.box-conic {
+  /* font-size: 3vw; */
+  /* margin: max(1rem, 3vw); */
+  border: 0.35rem solid;
+  /* padding: 3vw; */
+  /* border-image: conic-gradient(
+      from var(--angle),
+      var(--c2),
+      var(--c1) 0.1turn,
+      var(--c1) 0.15turn,
+      var(--c2) 0.25turn
+    )
+    30; */
+  animation: borderRotate var(--d) linear infinite forwards;
+  /* background-clip: content-box;
+  border: 2.5px dashed #4bb543;
+  animation: spin 10s linear infinite; */
+}
+@keyframes spin {
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+.box-radial {
+  border: 0.1rem solid;
+  /* padding: 20px; */
+  border-image: radial-gradient(
+      ellipse at var(--gradX) var(--gradY),
+      var(--c1),
+      var(--c1) 10%,
+      var(--c2) 40%
+    )
+    30;
+  animation: borderRadial var(--d) linear infinite forwards;
+}
+
+@keyframes borderRotate {
+  100% {
+    --angle: 420deg;
+  }
+}
+
+@keyframes borderRadial {
+  20% {
+    --gradX: 100%;
+    --gradY: 50%;
+  }
+  40% {
+    --gradX: 100%;
+    --gradY: 100%;
+  }
+  60% {
+    --gradX: 50%;
+    --gradY: 100%;
+  }
+  80% {
+    --gradX: 0%;
+    --gradY: 50%;
+  }
+  100% {
+    --gradX: 50%;
+    --gradY: 0%;
   }
 }

@@ -74,17 +74,17 @@ const LiveSubCountAll = (
   //       console.log(error);
   //     }
   //   };
-  useEffect(() => {
-    // const intervalId = setInterval(fetchStats, 10000); // Fetch every 3 seconds
-    // const timeoutId = setTimeout(() => setValue(data.subcount), 300);
-    // return () => {
-    //   clearInterval(intervalId);
-    // }; // Clean up on unmount
-  }, []);
+  // useEffect(() => {
+  //   // const intervalId = setInterval(fetchStats, 10000); // Fetch every 3 seconds
+  //   // const timeoutId = setTimeout(() => setValue(data.subcount), 300);
+  //   // return () => {
+  //   //   clearInterval(intervalId);
+  //   // }; // Clean up on unmount
+  // }, []);
 
-  useEffect(() => {
-    // fetchChannelDetails();
-  }, []);
+  // useEffect(() => {
+  //   // fetchChannelDetails();
+  // }, []);
 
   return (
     <>
@@ -95,202 +95,162 @@ const LiveSubCountAll = (
         {top50Channels.map((channel) => (
           // 64 for ie and 59 for chrome
           // 17-9 => 54 was height width was auto for ie h=52.2 width=254
-          <div className="h-[52.65px] w-[260px] overflow-hidden flex gap-[0px] bg-white justify-start items-center relative">
-            <span
-              className={`h-full text-[14px] w-[30px] font-medium py-[0px] px-1 flex flex-col justify-center items-center overflow-hidden  ${
-                // className={`h-full w-[34px] px-[4px] pr-[8px] flex flex-col justify-center  items-center  font-semibold ${
-                Number(channel.id) === 1 ||
-                Number(channel.id) === 2 ||
-                Number(channel.id) === 3 ||
-                channel.name === "UR · Cristiano" ||
-                channel.name === "김프로KIMPRO"
-                  ? "box-small"
-                  : ""
-              } `}
+          <div className="relative">
+            <div
+              className="h-[52.65px] w-[260px] overflow-hidden flex gap-[0px] bg-cyan-50 justify-start items-center relative"
+              key={channel.chnnelId}
             >
-              {channel.id}
-              {channel.name === "UR · Cristiano" ? (
-                <span>
-                  {/* 🔥 */}
-                  {/* <iframe
-                  src="https://giphy.com/embed/amI9hdIQsZMtCiQWOq"
-                  width="30"
-                  height="30"
-                  //   style=""
-                  frameBorder="0"
-                  className="giphy-embed"
-                  allowFullScreen
-                ></iframe> */}
-                  {/* <iframe
-                  //   src="https://giphy.com/embed/xUA7aO3740serwGGze"
-                  //   src="https://giphy.com/embed/uB6eLycBCOl68"
-                  src="https://giphy.com/embed/azIFf7xDt1YEiY2Wlo"
-                  width="30"
-                  height="30"
-                  //   style=""
-                  frameBorder="0"
-                  class="giphy-embed"
-                  allowFullScreen
-                ></iframe> */}
-                  <iframe
-                    src="https://giphy.com/embed/hxT02hhR7JpYiXiiqF"
-                    width="40"
-                    height="30"
-                    //   style=""
-                    frameBorder="0"
-                    className="giphy-embed"
-                    allowFullScreen
-                  ></iframe>
-                  {/* <iframe
-                    src="https://giphy.com/embed/GS2Acr2ShPMNrdsajU"
-                    width="25"
-                    height="25"
-                    //   style=""
-                    frameBorder="0"
-                    className="giphy-embed bg-gray-100 rounded-full absolute top-4 left-24"
-                    allowFullScreen
-                  ></iframe> */}
-                  <div className="absolute left-[85%] top-0 w-full h-full">
-                    {/* <iframe
-                    src="https://giphy.com/embed/WbiiOOb0SN9po32yMm"
-                    width="50"
-                    height="50"
-                    //   style="position:absolute"
-                    frameBorder="0"
-                    className="giphy-embed object-contain"
-                    allowFullScreen
-                  ></iframe> */}
+              <span
+                className={`h-full text-[14px] w-[30px] font-medium py-[0px] px-1 flex flex-col justify-center items-center overflow-hidden  ${
+                  channel.hot ? " box" : ""
+                } `}
+              >
+                {channel.id}
+                {channel.name === "UR · Cristiano" ? (
+                  <span>
                     <iframe
-                      src="https://giphy.com/embed/I911qr3QcRlGOd5pyJ"
+                      src="https://giphy.com/embed/hxT02hhR7JpYiXiiqF"
+                      width="40"
+                      height="30"
+                      //   style=""
+                      frameBorder="0"
+                      className="giphy-embed"
+                      allowFullScreen
+                    ></iframe>
+
+                    <div className="absolute left-[85%] top-0 w-full h-full">
+                      <iframe
+                        src="https://giphy.com/embed/I911qr3QcRlGOd5pyJ"
+                        width="40"
+                        height="40"
+                        // style=""
+                        frameBorder="0"
+                        className="giphy-embed object-contain"
+                        allowFullScreen
+                      ></iframe>
+                    </div>
+                  </span>
+                ) : Number(channel.id) === 1 ? (
+                  <>
+                    {/* // fire simple */}
+                    <iframe
+                      src="https://giphy.com/embed/8FGMuS6Bj4MyP1NA5h"
+                      width="60"
+                      height="60"
+                      //   style="position:absolute"
+                      frameBorder="0"
+                      className="giphy-embed absolute bottom-0 z-0"
+                      allowFullScreen
+                    ></iframe>
+                    {/* medal */}
+                    <iframe
+                      src="https://giphy.com/embed/FC2pAp4lTEtBIwBvP9"
                       width="40"
                       height="40"
                       // style=""
                       frameBorder="0"
-                      className="giphy-embed object-contain"
+                      className="giphy-embed object-contain z-10"
                       allowFullScreen
                     ></iframe>
-                  </div>
-                </span>
-              ) : Number(channel.id) === 1 ? (
-                <>
-                  {/* <iframe
-                  src="https://giphy.com/embed/2h2BsbOPzgE2pWaDDg"
-                  width="30"
-                  height="30"
-                  // style=""
-                  frameBorder="0"
-                  class="giphy-embed"
-                  allowFullScreen
-                ></iframe> */}
-                  {/* // fire simple */}
-                  <iframe
-                    src="https://giphy.com/embed/8FGMuS6Bj4MyP1NA5h"
-                    width="60"
-                    height="60"
-                    //   style="position:absolute"
-                    frameBorder="0"
-                    className="giphy-embed absolute bottom-0 z-0"
-                    allowFullScreen
-                  ></iframe>
-                  {/* medal */}
-                  <iframe
-                    src="https://giphy.com/embed/FC2pAp4lTEtBIwBvP9"
-                    width="40"
-                    height="40"
-                    // style=""
-                    frameBorder="0"
-                    className="giphy-embed object-contain z-10"
-                    allowFullScreen
-                  ></iframe>
-                  <div className="absolute left-[80%] top-0 w-full h-full flex">
+                    <div className="absolute left-[80%] top-0 w-full h-full flex">
+                      <iframe
+                        src="https://giphy.com/embed/nAWf5E1Ua00S6T8vYn"
+                        width="60"
+                        height="60"
+                        // style=""
+                        frameBorder="0"
+                        className="giphy-embed "
+                        allowFullScreen
+                      ></iframe>
+                    </div>
+                  </>
+                ) : Number(channel.id) === 2 ? (
+                  <>
                     <iframe
-                      src="https://giphy.com/embed/nAWf5E1Ua00S6T8vYn"
-                      width="60"
-                      height="60"
+                      src="https://giphy.com/embed/ihqEd7BQiXCdeaHhnA"
+                      width="80"
+                      height="40"
                       // style=""
                       frameBorder="0"
-                      className="giphy-embed "
+                      className="giphy-embed object-fill z-10"
                       allowFullScreen
                     ></iframe>
-                  </div>
-                </>
-              ) : Number(channel.id) === 2 ? (
-                <>
+                    <iframe
+                      src="https://giphy.com/embed/26BRIYJNRAreymGwE"
+                      width="40"
+                      height="40"
+                      //   style=""
+                      frameBorder="0"
+                      className="giphy-embed absolute bottom-0 z-0"
+                      allowFullScreen
+                    ></iframe>
+                  </>
+                ) : Number(channel.id) === 3 ? (
+                  <>
+                    <iframe
+                      src="https://giphy.com/embed/WQUOVbO1auORy4N0f0"
+                      width="70"
+                      height="40"
+                      // style=""
+                      frameBorder="0"
+                      className="giphy-embed object-fill z-10"
+                      allowFullScreen
+                    ></iframe>
+                    <iframe
+                      src="https://giphy.com/embed/26BRxthqtPxuu8dtC"
+                      width="40"
+                      height="40"
+                      //   style=""
+                      frameBorder="0"
+                      className="giphy-embed absolute bottom-0"
+                      allowFullScreen
+                    ></iframe>
+                  </>
+                ) : (
+                  ""
+                )}
+                {channel.hot ? <span>🔥</span> : ""}
+              </span>
+              <ImgComponent channelId={channel.channelId} />
+              <div className="flex flex-col relative">
+                <div className="absolute -top-[5px] left-[6px] z-10">
+                  <span className="text-nowrap text-sm text-gray-900">
+                    {channel.name}
+                  </span>
+                </div>
+                <div className="h-[25px] w-[130px] mt-3 overflow-hidden relative">
                   <iframe
-                    src="https://giphy.com/embed/ihqEd7BQiXCdeaHhnA"
-                    width="80"
-                    height="40"
-                    // style=""
-                    frameBorder="0"
-                    className="giphy-embed object-fill z-10"
+                    height="90px"
+                    width="240px"
+                    frameborder="0"
+                    src={`https://socialcounts.org/youtube-live-subscriber-count/${channel.channelId}/embed?style=.odoParrent%7Bfont-size%3A18px%7Dbody%7Bbackground-color%3Argba%28255%2C255%2C255%2C1%29%21important%7D.title%7Bfont-size%3A20px%7D.odoParrent%7Bcolor%3A+rgba%280%2C0%2C0%2C1%29%7D.title%7Bcolor%3A+rgba%280%2C0%2C0%2C1%29%7D.title%7Bfont-size%3A16px%7D`}
+                    style={{
+                      position: "absolute",
+                      left: "-70px",
+                      bottom: "-25px",
+                    }}
+                    // src={`https://socialcounts.org/youtube-live-subscriber-count/${channel.channelId}/embed?style=.odoParrent%7Bfont-size%3A20px%7Dbody%7Bbackground-color%3Argba%2882%2C78%2C183%2C1%29%21important%7D.title%7Bfont-size%3A20px%7D.odoParrent%7Bcolor%3A+rgba%280%2C0%2C0%2C1%29%7D.title%7Bcolor%3A+rgba%280%2C0%2C0%2C1%29%7D`}
+                    // https://socialcounts.org/youtube-live-subscriber-count/UCq-Fj5jknLsUf-MWSy4_brA/embed?style=.title%7Bfont-size%3A18px%7D
+                    // https://socialcounts.org/youtube-live-subscriber-count/UCq-Fj5jknLsUf-MWSy4_brA/embed?style=.odoParrent%7Bfont-size%3A20px%7D.title%7Bfont-size%3A18px%7D/
                     allowFullScreen
                   ></iframe>
-                  <iframe
-                    src="https://giphy.com/embed/26BRIYJNRAreymGwE"
-                    width="40"
-                    height="40"
-                    //   style=""
-                    frameBorder="0"
-                    className="giphy-embed absolute bottom-0 z-0"
-                    allowFullScreen
-                  ></iframe>
-                </>
-              ) : Number(channel.id) === 3 ? (
-                <>
-                  <iframe
-                    src="https://giphy.com/embed/WQUOVbO1auORy4N0f0"
-                    width="70"
-                    height="40"
-                    // style=""
-                    frameBorder="0"
-                    className="giphy-embed object-fill z-10"
-                    allowFullScreen
-                  ></iframe>
-                  <iframe
-                    src="https://giphy.com/embed/26BRxthqtPxuu8dtC"
-                    width="40"
-                    height="40"
-                    //   style=""
-                    frameBorder="0"
-                    className="giphy-embed absolute bottom-0"
-                    allowFullScreen
-                  ></iframe>
-                </>
-              ) : (
-                ""
-              )}
-              {channel.name === "김프로KIMPRO" ? <span>🔥</span> : ""}
-            </span>
-            <ImgComponent channelId={channel.channelId} />
-            <div className="flex flex-col relative">
-              <div className="absolute -top-[5px] left-[6px] z-10">
-                <span className="text-nowrap text-sm text-gray-900">
-                  {channel.name}
-                </span>
+                </div>
               </div>
-              <div className="h-[25px] w-[130px] mt-3 overflow-hidden relative">
+            </div>
+            {/* giph for versus */}
+            {channel.play && (
+              <div className="absolute left-[50%] -top-[12px] w-full h-full flex z-50">
                 <iframe
-                  height="90px"
-                  width="240px"
-                  // style={{
-                  //   height: "60px",
-                  //   overflow: "hidden",
-                  //   backgroundColor: "red",
-                  // }}
-                  frameborder="0"
-                  src={`https://socialcounts.org/youtube-live-subscriber-count/${channel.channelId}/embed?style=.odoParrent%7Bfont-size%3A18px%7Dbody%7Bbackground-color%3Argba%28255%2C255%2C255%2C1%29%21important%7D.title%7Bfont-size%3A20px%7D.odoParrent%7Bcolor%3A+rgba%280%2C0%2C0%2C1%29%7D.title%7Bcolor%3A+rgba%280%2C0%2C0%2C1%29%7D.title%7Bfont-size%3A16px%7D`}
-                  style={{
-                    position: "absolute",
-                    left: "-70px",
-                    bottom: "-25px",
-                  }}
-                  // src={`https://socialcounts.org/youtube-live-subscriber-count/${channel.channelId}/embed?style=.odoParrent%7Bfont-size%3A20px%7Dbody%7Bbackground-color%3Argba%2882%2C78%2C183%2C1%29%21important%7D.title%7Bfont-size%3A20px%7D.odoParrent%7Bcolor%3A+rgba%280%2C0%2C0%2C1%29%7D.title%7Bcolor%3A+rgba%280%2C0%2C0%2C1%29%7D`}
-                  // https://socialcounts.org/youtube-live-subscriber-count/UCq-Fj5jknLsUf-MWSy4_brA/embed?style=.title%7Bfont-size%3A18px%7D
-                  // https://socialcounts.org/youtube-live-subscriber-count/UCq-Fj5jknLsUf-MWSy4_brA/embed?style=.odoParrent%7Bfont-size%3A20px%7D.title%7Bfont-size%3A18px%7D/
+                  src="https://giphy.com/embed/5SQLQog6IGzKyxQTnv"
+                  width="20"
+                  height="20"
+                  // style=""
+                  frameBorder="0"
+                  className="giphy-embed "
                   allowFullScreen
                 ></iframe>
               </div>
-            </div>
+            )}
           </div>
         ))}
       </div>
