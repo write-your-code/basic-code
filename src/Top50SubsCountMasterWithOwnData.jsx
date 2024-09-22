@@ -21,9 +21,10 @@ const LiveSubCountAll = (
     //   main = 0,
   }
 ) => {
-  const [data, setData] = useState({});
+  const [data, setData] = useState(top50Channels);
   const [value, setValue] = useState(0);
   const [diffSub, setDiffSub] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   //   const fetchStats = async () => {
   //     try {
@@ -84,20 +85,37 @@ const LiveSubCountAll = (
 
   // useEffect(() => {
   //   // fetchChannelDetails();
+  //   const intervalId = setInterval(() => {
+  //     setLoading(true);
+  //     setData(top50Channels);
+  //     console.log("data set in useeffect");
+  //   }, 100000); // Fetch every 3 seconds
+  //   setLoading(false);
+  //   // const timeoutId = setTimeout(() => setValue(data.subcount), 300);
+  //   return () => {
+  //     clearInterval(intervalId);
+  //   }; // Clean up on unmount
   // }, []);
-
+  if (!data) {
+    return <p>Loading...</p>;
+  }
   return (
     <>
       <TwoChannelsFight />
+      {/* for i.e mt-[60px] for ie and gap-[1.5px for ie] and h-[100vh]*/}
+      {/*for chrome mt-[59px] for ie and gap-[1.4px] and h-[98vh]*/}
       <div
-        className={`mb-[0px] w-[280px] h-[100vh] relative flex flex-wrap flex-col items-center gap-[1.5px] mt-[60px]`}
+        className={`mb-[0px] w-[280px] h-[98vh] relative flex flex-wrap flex-col items-center gap-[1.4px] mt-[59px]`}
       >
-        {top50Channels.map((channel) => (
+        {/* {top50Channels.map((channel) => ( */}
+        {data.map((channel) => (
           // 64 for ie and 59 for chrome
           // 17-9 => 54 was height width was auto for ie h=52.2 width=254
+          // h-[52.65px] for ie
+          // h-[48px] for chrome
           <div className="relative">
             <div
-              className="h-[52.65px] w-[260px] overflow-hidden flex gap-[0px] bg-cyan-50 justify-start items-center relative"
+              className="h-[48px] w-[260px] overflow-hidden flex gap-[0px] bg-cyan-50 justify-start items-center relative"
               key={channel.chnnelId}
             >
               <span
@@ -136,7 +154,7 @@ const LiveSubCountAll = (
                     <iframe
                       src="https://giphy.com/embed/8FGMuS6Bj4MyP1NA5h"
                       width="60"
-                      height="60"
+                      height="50"
                       //   style="position:absolute"
                       frameBorder="0"
                       className="giphy-embed absolute bottom-0 z-0"
@@ -146,7 +164,7 @@ const LiveSubCountAll = (
                     <iframe
                       src="https://giphy.com/embed/FC2pAp4lTEtBIwBvP9"
                       width="40"
-                      height="40"
+                      height="30"
                       // style=""
                       frameBorder="0"
                       className="giphy-embed object-contain z-10"
@@ -169,7 +187,7 @@ const LiveSubCountAll = (
                     <iframe
                       src="https://giphy.com/embed/ihqEd7BQiXCdeaHhnA"
                       width="80"
-                      height="40"
+                      height="30"
                       // style=""
                       frameBorder="0"
                       className="giphy-embed object-fill z-10"
@@ -190,7 +208,7 @@ const LiveSubCountAll = (
                     <iframe
                       src="https://giphy.com/embed/WQUOVbO1auORy4N0f0"
                       width="70"
-                      height="40"
+                      height="35"
                       // style=""
                       frameBorder="0"
                       className="giphy-embed object-fill z-10"
@@ -223,7 +241,7 @@ const LiveSubCountAll = (
                     height="90px"
                     width="240px"
                     frameborder="0"
-                    src={`https://socialcounts.org/youtube-live-subscriber-count/${channel.channelId}/embed?style=.odoParrent%7Bfont-size%3A18px%7Dbody%7Bbackground-color%3Argba%28255%2C255%2C255%2C1%29%21important%7D.title%7Bfont-size%3A20px%7D.odoParrent%7Bcolor%3A+rgba%280%2C0%2C0%2C1%29%7D.title%7Bcolor%3A+rgba%280%2C0%2C0%2C1%29%7D.title%7Bfont-size%3A16px%7D`}
+                    src={`https://socialcounts.org/youtube-live-subscriber-count/${channel.channelId}/embed?style=.odoParrent%7Bfont-size%3A17px%7Dbody%7Bbackground-color%3Argba%28255%2C255%2C255%2C0%29%21important%7D.title%7Bfont-size%3A17px%7D.odoParrent%7Bcolor%3A+rgba%280%2C0%2C0%2C1%29%7D.title%7Bcolor%3A+rgba%280%2C0%2C0%2C1%29%7D.title%7Bfont-size%3A16px%7D`}
                     style={{
                       position: "absolute",
                       left: "-70px",
