@@ -106,8 +106,9 @@ const TwoChannelsFight = () => {
 
   return (
     <div
-      className={`mb-[0px] flex items-center gap-0 fixed overflow-hidden z-10 top-0 w-full border-[#BD10E0] `}
+      className={`mb-[0px] flex items-center gap-0 fixed overflow-hidden z-10 top-0 w-full border-[#BD10E0]`}
     >
+      <div className="snow"></div>
       {/* top 50 live count text */}
       <div className="flex items-center gap-1 bg-black/[0.7] h-[60px]">
         <iframe

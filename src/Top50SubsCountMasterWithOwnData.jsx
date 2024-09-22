@@ -104,14 +104,16 @@ const LiveSubCountAll = (
       <TwoChannelsFight />
       {/* for i.e mt-[60px] for ie and gap-[1.5px for ie] and h-[100vh]*/}
       {/*for chrome mt-[59px] for ie and gap-[1.4px] and h-[98vh]*/}
+      {/* now calculated as 52*10+gap1.4px=580 approx */}
+      {/* for chrome now calculated as 48*10+gap1.4px=540 approx */}
       <div
-        className={`mb-[0px] w-[280px] h-[98vh] relative flex flex-wrap flex-col items-center gap-[1.4px] mt-[59px]`}
+        className={`mb-[0px] w-[280px] h-[540px] relative flex flex-wrap flex-col items-center gap-[1.4px] mt-[60px]`}
       >
         {/* {top50Channels.map((channel) => ( */}
         {data.map((channel) => (
           // 64 for ie and 59 for chrome
           // 17-9 => 54 was height width was auto for ie h=52.2 width=254
-          // h-[52.65px] for ie
+          // h-[52px] or [52.65] for ie
           // h-[48px] for chrome
           <div className="relative">
             <div
