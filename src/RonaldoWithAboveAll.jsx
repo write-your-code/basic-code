@@ -77,7 +77,7 @@ export default function LiveSubThree() {
           // <QueryClientProvider client={queryClient}>
           <Child
             //   id={"UCtxD0x6AuNNqdXO9Wp5GHew"}
-            key={channel.chnnelId}
+            key={channel.id}
             id={channel.channelId}
             diff={diff}
             setDiff={setDiff}

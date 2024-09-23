@@ -51,7 +51,8 @@ export default function LiveSubThree() {
             <LiveSubCountAll3D
               //   id={"UCtxD0x6AuNNqdXO9Wp5GHew"}
               id={channel}
-              diff={diff}
+              key={channel}
+              diff={channel}
               setDiff={setDiff}
               // setSubList={setSubList}
               // index={i === 1 ? 56 : rank++}

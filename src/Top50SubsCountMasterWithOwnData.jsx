@@ -115,7 +115,7 @@ const LiveSubCountAll = (
           // 17-9 => 54 was height width was auto for ie h=52.2 width=254
           // h-[52px] or [52.65] for ie
           // h-[48px] for chrome
-          <div className="relative">
+          <div className="relative" key={channel.channelId}>
             <div
               className="h-[48px] w-[260px] overflow-hidden flex gap-[0px] bg-cyan-50 justify-start items-center relative"
               key={channel.chnnelId}
@@ -133,7 +133,7 @@ const LiveSubCountAll = (
                       width="40"
                       height="30"
                       //   style=""
-                      frameBorder="0"
+                      // frameBorder="0"
                       className="giphy-embed"
                       allowFullScreen
                     ></iframe>
@@ -242,7 +242,7 @@ const LiveSubCountAll = (
                   <iframe
                     height="90px"
                     width="240px"
-                    frameborder="0"
+                    frameBorder="0"
                     src={`https://socialcounts.org/youtube-live-subscriber-count/${channel.channelId}/embed?style=.odoParrent%7Bfont-size%3A17px%7Dbody%7Bbackground-color%3Argba%28255%2C255%2C255%2C0%29%21important%7D.title%7Bfont-size%3A17px%7D.odoParrent%7Bcolor%3A+rgba%280%2C0%2C0%2C1%29%7D.title%7Bcolor%3A+rgba%280%2C0%2C0%2C1%29%7D.title%7Bfont-size%3A16px%7D`}
                     style={{
                       position: "absolute",

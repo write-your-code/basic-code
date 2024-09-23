@@ -117,7 +117,7 @@ const TwoChannelsFight = () => {
           height="40"
           // style=""
           frameBorder="0"
-          class="giphy-embed"
+          className="giphy-embed"
           allowFullScreen
         ></iframe>
         <div className="text-container">
@@ -129,7 +129,7 @@ const TwoChannelsFight = () => {
           height="40"
           // style=""
           frameBorder="0"
-          class="giphy-embed"
+          className="giphy-embed"
           allowFullScreen
         ></iframe>
       </div>
@@ -138,6 +138,7 @@ const TwoChannelsFight = () => {
           // 64 for ie and 59 for chrome
           <div
             className={`h-[59px] flex gap-0 items-center relative bg-transparent `}
+            key={channel.channelId}
           >
             {/* vs iframe */}
             {i === 1 && (
@@ -170,7 +171,7 @@ const TwoChannelsFight = () => {
                       className="transition ease-in-out delay-50 hover:-translate-x-1 hover:scale-110 duration-200"
                       height="60px"
                       width="380px"
-                      frameborder="0"
+                      frameBorder="0"
                       src={`https://socialcounts.org/compare/youtube-live-subscriber-count/${data[0].channelId}/youtube-live-subscriber-count/${data[1].channelId}/embed?style=body%7Bbackground-color%3Argba%28255%2C255%2C255%2C0%29%21important%7D
                   .compareId_difference%7Bcolor%3Argba%28255%2C255%2C255%2C1%29%21important%7D`}
                       style={{
@@ -312,7 +313,7 @@ const TwoChannelsFight = () => {
                     top: "0",
                     overflow: "hidden",
                   }}
-                  frameborder="0"
+                  frameBorder="0"
                   src={`https://socialcounts.org/youtube-live-subscriber-count/${channel.channelId}/embed?style=.odoParrent%7Bfont-size%3A18px%7Dbody%7Bbackground-color%3Argba%28189%2C16%2C224%2C0%29%21important%7D.title%7Bfont-size%3A20px%7D.odoParrent%7Bcolor%3A+rgba%280%2C0%2C0%2C1%29%7D.title%7Bcolor%3A+rgba%28255%2C255%2C255%2C1%29%7D.odoParrent%7Bcolor%3A+rgba%28255%2C255%2C255%2C1%29%7D`}
                   // src={`https://socialcounts.org/youtube-live-subscriber-count/${channel.channelId}/embed?style=.odoParrent%7Bfont-size%3A20px%7Dbody%7Bbackground-color%3Argba%2882%2C78%2C183%2C1%29%21important%7D.title%7Bfont-size%3A20px%7D.odoParrent%7Bcolor%3A+rgba%280%2C0%2C0%2C1%29%7D.title%7Bcolor%3A+rgba%280%2C0%2C0%2C1%29%7D`}
                   allowFullScreen
@@ -330,7 +331,7 @@ const TwoChannelsFight = () => {
           height="50"
           // style=""
           frameBorder="0"
-          class="giphy-embed"
+          className="giphy-embed"
           allowFullScreen
         ></iframe> */}
         {/* <iframe
@@ -339,7 +340,7 @@ const TwoChannelsFight = () => {
           height="60"
           // style=""
           frameBorder="0"
-          class="giphy-embed"
+          className="giphy-embed"
           allowFullScreen
         ></iframe> */}
         {/* like and subcribe giph */}
@@ -349,7 +350,7 @@ const TwoChannelsFight = () => {
           height="60"
           // style=""
           // frameBorder="0"
-          class="giphy-embed"
+          className="giphy-embed"
           allowFullScreen
         ></iframe> */}
         <iframe
@@ -358,7 +359,7 @@ const TwoChannelsFight = () => {
           height="50"
           // style=""
           frameBorder="0"
-          class="giphy-embed"
+          className="giphy-embed"
           allowFullScreen
         ></iframe>
       </div>

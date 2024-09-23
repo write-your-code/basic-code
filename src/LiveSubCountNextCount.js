@@ -24,47 +24,61 @@ const LiveSubCountAll = ({
   const [diffSub, setDiffSub] = useState(0);
   const [views, setViews] = useState(0);
 
-  // for border animation
-  const boxRef = useRef(null);
-
-  useEffect(() => {
-    const boxElement = boxRef.current;
-    if (!boxElement) {
-      return;
-    }
-
-    const updateAnimation = () => {
-      const angle =
-        (parseFloat(boxElement.style.getPropertyValue("--angle")) + 0.5) % 360;
-      boxElement.style.setProperty("--angle", `${angle}deg`);
-      requestAnimationFrame(updateAnimation);
-    };
-
-    requestAnimationFrame(updateAnimation);
-  }, []);
   const fetchStats = async () => {
     try {
       // const response = await axios.get(
       //   `https://api-v2.nextcounts.com/api/youtube/channel/${id}`
       // );
+      // const responseEstSub = await axios.get(
+      //   `https://api.socialcounts.org/youtube-live-subscriber-count/${id}`
+      // );
       const responseEstSub = await axios.get(
-        `https://api.socialcounts.org/youtube-live-subscriber-count/${id}`
+        `https://rappid.in/apis/youyube/live_count.php?channel_id=${id}`
+        // headers: {
+        //   "Access-Control-Allow-Origin": "*",
+        //   "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+        //   "Access-Control-Allow-Headers":
+        //     "append,delete,entries,foreach,get,has,keys,set,values,Authorization",
+        //   "Content-Type": "application/json",
+        // },
+        // withCredentials: false,
       );
-
+      // const responseEstSub = await axios.create({
+      //   method: "get",
+      //   url: `https://rappid.in/apis/youyube/live_count.php?channel_id=${id}`,
+      //   headers: {
+      //     "Access-Control-Allow-Origin": "*",
+      //     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+      //     "Access-Control-Allow-Headers":
+      //       "append,delete,entries,foreach,get,has,keys,set,values,Authorization",
+      //     "Content-Type": "application/json",
+      //   },
+      //   withCredentials: false,
+      // });
+      // axios.create({
+      //   baseURL: `https://rappid.in/apis/youyube/live_count.php?channel_id=${id}`,
+      //   headers: {
+      //     "Access-Control-Allow-Origin": "*",
+      //     "Content-Type": "application/json",
+      //   },
+      //   // withCredentials: false,
+      // });
+      // const responseEstSub = axios.get();
       // const data = response.data;
-      const dataEst = responseEstSub.data;
+      const dataEst = await responseEstSub.data;
+      // console.log("est dtat is: ", responseEstSub);
       console.log("estData is: ", dataEst);
       setValue(dataEst.est_sub);
       setViews(dataEst.table[0].count);
       setDiff && setDiff(dataEst.est_sub);
-      setSubList &&
-        setSubList((current) => {
-          current.sort((a, b) => {
-            return b - a;
-          });
-          current.filter((value, i) => current.indexOf(value) === i);
-          return [...current, dataEst.est_sub];
-        });
+      // setSubList &&
+      //   setSubList((current) => {
+      //     current.sort((a, b) => {
+      //       return b - a;
+      //     });
+      //     current.filter((value, i) => current.indexOf(value) === i);
+      //     return [...current, dataEst.est_sub];
+      //   });
       return data;
       // return {
       //   subscriberCount: data.statistics.subscriberCount,
@@ -72,6 +86,16 @@ const LiveSubCountAll = ({
       //   profilePicture: data.snippet.thumbnails.default.url,
       // };
     } catch (error) {
+      if (error.response) {
+        // The server responded with a status code outside the 2xx range
+        console.log("Error response:", error.response);
+      } else if (error.request) {
+        // The request was made but no response was received
+        console.log("Error request:", error.request);
+      } else {
+        // Something happened in setting up the request that triggered an error
+        console.log("Error message:", error.message);
+      }
       console.log(error);
     }
   };
@@ -89,7 +113,7 @@ const LiveSubCountAll = ({
     }
   };
   useEffect(() => {
-    const intervalId = setInterval(fetchStats, 300); // Fetch every 3 seconds
+    const intervalId = setInterval(fetchStats, 3000); // Fetch every 3 seconds
     // const timeoutId = setTimeout(() => setValue(data.subcount), 300);
     return () => {
       clearInterval(intervalId);
@@ -103,15 +127,7 @@ const LiveSubCountAll = ({
   if (main) {
     return (
       <div className="mb-[5px] w-[276px] mr-[2px] h-[430px] shadow-xl box">
-        <div
-          className="flex flex-col  bg-gradient-to-b from-orange-400 rounded-lg to-red-500 bg-black dark:from-orange-400:to-red-500 px-2 py-[1px] text-2xl items-center h-[100%] animate-pulse"
-          ref={boxRef}
-          style={{
-            "--angle": "0deg",
-            "--border-color": "linear-gradient(var(--angle), #070707, #687aff)",
-            "--bg-color": "linear-gradient(#131219, #131219)",
-          }}
-        >
+        <div className="flex flex-col  bg-gradient-to-b from-orange-400 rounded-lg to-red-500 bg-black dark:from-orange-400:to-red-500 px-2 py-[1px] text-2xl items-center h-[100%] animate-pulse">
           <span className="text-lg font-bold w-3">{index}</span>
           <img
             src={data.userImg}
@@ -142,7 +158,7 @@ const LiveSubCountAll = ({
   return (
     <div className="mb-[1px] w-[285px] h-[86px]">
       <div className="flex mr-1 bg-slate-100 px-1 rounded py-[1px] text-xl items-center gap-2">
-        <span className="text-sm font-bold w-3">{index}</span>
+        <span className="text-sm font-bold w-3">new.{index}</span>
         <img
           src={
             data.userImg ||

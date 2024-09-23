@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 // Import Swiper React components
-import { Autoplay } from "swiper/modules";
+// import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide, allowSlideNext } from "swiper/react";
 // import Flag from 'react-world-flags'
 // Import Swiper styles
@@ -93,17 +93,17 @@ export default function LiveSubThree() {
         modules={[
           EffectCube,
           // Keyboard,
-          Autoplay,
+          // AutoPlay,
           Pagination,
           EffectCoverflow,
           EffectCards,
         ]}
         // effect={"cards"}
         // modules={[EffectCards]}
-        autoplay={{
-          delay: 50000,
-          disableOnInteraction: false,
-        }}
+        // autoplay={{
+        //   delay: 50000,
+        //   disableOnInteraction: false,
+        // }}
         // EffectCoverFlow={{
         //   rotate: 50,
         //   stretch: 0,
