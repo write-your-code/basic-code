@@ -1,23 +1,39 @@
 import LiveSubCountAll from "./LiveSubCountNextCount";
 import LiveSubCountTop50 from "./LiveSubCountTop50";
-import { useState } from "react";
-import { ChannelList, ChannelListForTop50 } from "./data/ChannelList";
+import { useEffect, useState } from "react";
+import {
+  ChannelList,
+  ChannelListForTop50,
+  top50Channels,
+} from "./data/ChannelList";
 import LiveSubThree from "./LiveSubThree";
 import LiveSubSwiper from "./LiveSubSwiper";
 import LiveCount from "./LiveCount";
 import RonaldovsBeast from "./RonaldoMrbeastMain";
 import RonalWith10Behind from "./RonaldoWith10Behind";
+import RonalWith10Behind10Above from "./RonaldoWithAbove10Behind10Master";
 import RonalAboveAll from "./RonaldoWithAboveAll";
 // import Top50 from "./Top50SubsCountMaster";
 import Top50 from "./Top50SubsCountMasterWithOwnData";
+import Top50OwnApi from "./Top50SubsCountParentOwnApi";
+import TwoChannelsFight from "./TwoChannelsFight";
 
 function App() {
   const [list, setList] = useState(ChannelList);
   const [array, setArray] = useState(ChannelListForTop50);
-  const [subList, setSubList] = useState([]);
+  const [subList, setSubList] = useState(top50Channels);
   const [diff, setDiff] = useState();
   const [layout, setLayout] = useState(0);
   let rank = 1;
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setSubList((current) => current.sort((a, b) => b.subs - a.subs));
+      console.log("current sub list: ", subList);
+    }, 10000);
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, []);
   return (
     <div
       className={`
@@ -61,7 +77,39 @@ function App() {
           <button className="bg-red-400 p-2 m-2" onClick={() => setLayout(8)}>
             Ronaldo Above All
           </button>
+          <button className="bg-red-400 p-2 m-2" onClick={() => setLayout(9)}>
+            Top 50 with own api
+          </button>
+          <button className="bg-red-400 p-2 m-2" onClick={() => setLayout(10)}>
+            Ronaldo 10 above 10 behind
+          </button>
         </div>
+      )}
+      {layout === 10 && (
+        <>
+          {/* <TwoChannelsFight /> */}
+          <RonalWith10Behind10Above />
+        </>
+      )}
+      {layout === 9 && (
+        <>
+          <TwoChannelsFight />
+          <div
+            className={`mb-[0px] h-[540px] relative flex flex-wrap flex-col  gap-[1.4px] mt-[60px]`}
+          >
+            {subList?.map((channel, index) => {
+              return (
+                <Top50OwnApi
+                  channel={channel}
+                  id={channel.channelId}
+                  diff={diff}
+                  setSubList={setSubList}
+                  index={channel.id}
+                />
+              );
+            })}
+          </div>
+        </>
       )}
       {layout === 8 && <RonalAboveAll />}
       {layout === 7 && <RonalWith10Behind />}

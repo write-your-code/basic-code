@@ -243,7 +243,7 @@ const LiveSubCountAll = (
                     height="90px"
                     width="240px"
                     frameBorder="0"
-                    src={`https://socialcounts.org/youtube-live-subscriber-count/${channel.channelId}/embed?style=.odoParrent%7Bfont-size%3A17px%7Dbody%7Bbackground-color%3Argba%28255%2C255%2C255%2C0%29%21important%7D.title%7Bfont-size%3A17px%7D.odoParrent%7Bcolor%3A+rgba%280%2C0%2C0%2C1%29%7D.title%7Bcolor%3A+rgba%280%2C0%2C0%2C1%29%7D.title%7Bfont-size%3A16px%7D`}
+                    src={`https://socialcounts.org/youtube-live-subscriber-count/${channel.channelId}/embed?style=.odoParrent%7Bfont-size%3A17px%7Dbody%7Bbackground-color%3Argba%28255%2C255%2C255%2C0%29%21important%7D.title%7Bfont-size%3A17px%7D.odoParrent%7Bcolor%3A+rgba%280%2C0%2C0%2C1%29%7D.title%7Bcolor%3A+rgba%280%2C0%2C0%2C1%29%7D.title%7Bfont-size%3A16px%7DodoUpColor=rgba%2865%2C117%2C5%2C1%29&odoDownColor=rgba%28208%2C2%2C27%2C1%29`}
                     style={{
                       position: "absolute",
                       left: "-70px",

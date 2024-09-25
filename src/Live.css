@@ -3,6 +3,23 @@
   width: 40px !important;
   height: 20px !important;
 } */
+.odometer {
+  /* transform: scale(1); */
+  /* transition: all 2s ease-in-out; */
+  /* color: #111 !important; */
+}
+.odometer-animating-up {
+  color: green !important;
+}
+.odometer-animating-down {
+  color: red !important;
+}
+.odometer-animating {
+  /* color: blue !important; */
+  /* border: solid 1px blue !important; */
+  /* transform: scale(1.1); */
+  /* transition: all 5.5s ease-in-out !important; */
+}
 * {
   box-sizing: border-box;
 }
@@ -900,5 +917,50 @@ html {
 @keyframes snow {
   to {
     transform: translateY(60px);
+  }
+}
+
+/* right left animation */
+#middle {
+  /* bottom: 15%; */
+  /* position: absolute; */
+  transition: all 2s ease-in-out;
+  animation: linear infinite;
+  animation-name: run;
+  animation-duration: 6s;
+}
+@keyframes run {
+  0% {
+    transform: translateX(0px);
+  }
+  25% {
+    transform: translateX(-10px);
+  }
+  37% {
+    transform: translateX(-30px);
+  }
+  49% {
+    transform: translateX(-10px);
+  }
+  50% {
+    transform: translateX(0px);
+  }
+  51% {
+    transform: rotateY(360deg);
+  }
+  55% {
+    transform: rotateY(0deg);
+  }
+  62% {
+    transform: translateX(10px);
+  }
+  74% {
+    transform: translateX(30px);
+  }
+  87% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0px);
   }
 }

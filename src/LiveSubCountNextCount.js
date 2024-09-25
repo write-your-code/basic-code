@@ -1,6 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
-import { getChannelDetails, getBeastDetails } from "./api/youtube";
-import { getChannelDetailsB } from "./api/youtube-beast";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import {
   ArrowDownIcon,
   ArrowDownRightIcon,
@@ -24,47 +22,15 @@ const LiveSubCountAll = ({
   const [diffSub, setDiffSub] = useState(0);
   const [views, setViews] = useState(0);
 
-  const fetchStats = async () => {
+  const fetchStats = useCallback(async () => {
     try {
       // const response = await axios.get(
       //   `https://api-v2.nextcounts.com/api/youtube/channel/${id}`
       // );
       // const responseEstSub = await axios.get(
       //   `https://api.socialcounts.org/youtube-live-subscriber-count/${id}`
-      // );
-      const responseEstSub = await axios.get(
-        `https://rappid.in/apis/youyube/live_count.php?channel_id=${id}`
-        // headers: {
-        //   "Access-Control-Allow-Origin": "*",
-        //   "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-        //   "Access-Control-Allow-Headers":
-        //     "append,delete,entries,foreach,get,has,keys,set,values,Authorization",
-        //   "Content-Type": "application/json",
-        // },
-        // withCredentials: false,
-      );
-      // const responseEstSub = await axios.create({
-      //   method: "get",
-      //   url: `https://rappid.in/apis/youyube/live_count.php?channel_id=${id}`,
-      //   headers: {
-      //     "Access-Control-Allow-Origin": "*",
-      //     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-      //     "Access-Control-Allow-Headers":
-      //       "append,delete,entries,foreach,get,has,keys,set,values,Authorization",
-      //     "Content-Type": "application/json",
-      //   },
-      //   withCredentials: false,
-      // });
-      // axios.create({
-      //   baseURL: `https://rappid.in/apis/youyube/live_count.php?channel_id=${id}`,
-      //   headers: {
-      //     "Access-Control-Allow-Origin": "*",
-      //     "Content-Type": "application/json",
-      //   },
-      //   // withCredentials: false,
-      // });
-      // const responseEstSub = axios.get();
-      // const data = response.data;
+      const responseEstSub = await axios.get(`http://localhost:4000/api/${id}`);
+
       const dataEst = await responseEstSub.data;
       // console.log("est dtat is: ", responseEstSub);
       console.log("estData is: ", dataEst);
@@ -98,22 +64,29 @@ const LiveSubCountAll = ({
       }
       console.log(error);
     }
-  };
-  const fetchChannelDetails = async () => {
-    try {
-      const response = await axios.get(
-        `https://api-v2.nextcounts.com/api/youtube/channel/${id}`
-      );
-      const data = response.data;
-      console.log("data is: ", data);
-      setData(data);
-      return data;
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  }, [value]);
+
+  const fetchChannelDetails = useCallback(
+    async () => {
+      try {
+        const response = await axios.get(
+          // `https://api-v2.nextcounts.com/api/youtube/channel/${id}`
+          `http://localhost:4000/api/data/${id}`
+        );
+        const data = response.data;
+        console.log("channel data is called: ", data);
+        setData(data);
+        // return data;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    // ["/api/youtube/channel"],
+    [data.userImg]
+    // [data.username]
+  );
   useEffect(() => {
-    const intervalId = setInterval(fetchStats, 3000); // Fetch every 3 seconds
+    const intervalId = setInterval(fetchStats, 1000); // Fetch every 3 seconds
     // const timeoutId = setTimeout(() => setValue(data.subcount), 300);
     return () => {
       clearInterval(intervalId);
@@ -127,7 +100,7 @@ const LiveSubCountAll = ({
   if (main) {
     return (
       <div className="mb-[5px] w-[276px] mr-[2px] h-[430px] shadow-xl box">
-        <div className="flex flex-col  bg-gradient-to-b from-orange-400 rounded-lg to-red-500 bg-black dark:from-orange-400:to-red-500 px-2 py-[1px] text-2xl items-center h-[100%] animate-pulse">
+        <div className="flex flex-col  bg-gradient-to-b from-orange-400 rounded-lg to-red-500 bg-black dark:from-orange-400:to-red-500 px-2 py-[1px] text-2xl items-center h-[100%]">
           <span className="text-lg font-bold w-3">{index}</span>
           <img
             src={data.userImg}
@@ -158,7 +131,7 @@ const LiveSubCountAll = ({
   return (
     <div className="mb-[1px] w-[285px] h-[86px]">
       <div className="flex mr-1 bg-slate-100 px-1 rounded py-[1px] text-xl items-center gap-2">
-        <span className="text-sm font-bold w-3">new.{index}</span>
+        <span className="text-sm font-bold w-3">{index}</span>
         <img
           src={
             data.userImg ||
