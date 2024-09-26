@@ -75,7 +75,7 @@ const ImgComponent = ({ channelId, old = false, imgRounded = false }) => {
         "https://yt3.ggpht.com/fxGKYucJAVme-Yz4fsdCroCFCrANWqw0ql4GYuvx8Uq4l_euNJHgE-w9MTkLQA805vWCi-kE0g=s88-c-k-c0x00ffffff-no-rj"
       }
       alt={"img"}
-      className="object-contain card"
+      className="object-contain"
     />
   ) : (
     <img

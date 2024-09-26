@@ -26,13 +26,13 @@ function App() {
   const [layout, setLayout] = useState(0);
   let rank = 1;
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      setSubList((current) => current.sort((a, b) => b.subs - a.subs));
-      console.log("current sub list: ", subList);
-    }, 10000);
-    return () => {
-      clearInterval(intervalId);
-    };
+    // const intervalId = setInterval(() => {
+    //   setSubList((current) => current.sort((a, b) => b.subs - a.subs));
+    //   console.log("current sub list: ", subList);
+    // }, 10000);
+    // return () => {
+    //   clearInterval(intervalId);
+    // };
   }, []);
   return (
     <div
