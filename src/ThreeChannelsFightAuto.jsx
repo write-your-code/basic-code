@@ -150,7 +150,7 @@ const ThreeChannelsFight = () => {
               <div className="flex flex-col justify-end h-full w-[100px]  items-center relative z-30">
                 <div className="absolute top-0 -left-[0px]" id="diff">
                   <div
-                    className="overflow-hidden w-[92px] h-[60px] bg-[#BD10E0] z-500 "
+                    className="overflow-hidden w-[92px] h-[60px] bg-[#BD10E0] z-500 border border-white"
                     // id="diff"
                   >
                     <iframe

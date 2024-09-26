@@ -172,14 +172,14 @@ export const top50Channels = [
   { id: "39", name: "Dude Perfect", channelId: "UCRijo3ddMTht_IHyNSNXpNQ" },
   { id: "40", name: "Taylor Swift", channelId: "UCqECaJ8Gagnn7YCbPEzWH6g" },
   { id: "41", name: "HAR PAL GEO", channelId: "UCe9JSDmyqNgA_l2BzGHq1Ug" },
-  { id: "42", name: "Alan Chikin Chow", channelId: "UC5gxP-2QqIh_09djvlm9Xcg" },
   {
-    id: "43",
+    id: "42",
     name: "김프로KIMPRO",
     channelId: "UCiVs2pnGW5mLIc1jS2nxhjg",
     play: true,
     hot: true,
   },
+  { id: "43", name: "Alan Chikin Chow", channelId: "UC5gxP-2QqIh_09djvlm9Xcg" },
   {
     id: "44",
     name: "LooLoo Kids - Nursery Rhymes and Children's Songs",
@@ -191,7 +191,12 @@ export const top50Channels = [
     name: "Billion Surprise Toys",
     channelId: "UCRx3mKNUdl8QE06nEug7p6Q",
   },
-  { id: "47", name: "ARY Digital HD", channelId: "UC4JCksJF76g_MdzPVBJoC3Q" },
+  {
+    id: "47",
+    name: "ARY Digital HD",
+    channelId: "UC4JCksJF76g_MdzPVBJoC3Q",
+    play: true,
+  },
   { id: "48", name: "Mark Rober", channelId: "UCY1kMZp36IQSyNx_9h4mpCg" },
   { id: "49", name: "Fede Vigevani", channelId: "UCoQm-PeHC-cbJclKJYJ8LzA" },
   {

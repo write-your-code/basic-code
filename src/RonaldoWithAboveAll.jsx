@@ -49,7 +49,7 @@ export default function LiveSubThree() {
     const newData = top50Channels.filter((channel) => {
       if (
         Number(channel.id) <=
-        Number(ronaldoRank) + 3
+        Number(ronaldoRank) + 4
         // Number(channel.id) <= Number(ronaldoRank)
       )
         return channel;

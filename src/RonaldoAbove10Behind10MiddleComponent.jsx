@@ -109,7 +109,7 @@ const MiddleComponent = ({
   }, []);
   return (
     <div className="h-[1050px] flex gap-4 mx-1 mt-40">
-      <div className="flex flex-col bg-black border border-gray-100 rounded-lg px-0 text-xl items-center justify-start pb-1 h-[320px] w-[220px] relative mt-[10px] box">
+      <div className="flex flex-col bg-black border border-gray-100 rounded-lg px-0 text-xl items-center justify-start pb-1 h-[320px] w-[220px] relative mt-[10px]">
         <span className="text-md text-white font-bold">{index}</span>
         <img
           className="w-full object-contain"

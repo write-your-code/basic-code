@@ -295,10 +295,11 @@ const TwoChannelsFight = () => {
                   ""
                 )}
               </span>
-              <div className="mx-0 px-0 w-[80px]">
+              <div className="mx-0 px-0 w-[60px] h-[60px] rounded-full border-2 border-white overflow-hidden">
                 <ImgComponent
                   channelId={channel.channelId}
                   old={true}
+                  imgRounded={true}
                   // animation={true}
                 />
               </div>

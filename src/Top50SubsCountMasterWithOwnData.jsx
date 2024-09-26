@@ -234,7 +234,7 @@ const LiveSubCountAll = (
               <ImgComponent channelId={channel.channelId} />
               <div className="flex flex-col relative">
                 <div className="absolute -top-[5px] left-[6px] z-10">
-                  <span className="text-nowrap text-sm text-gray-900">
+                  <span className="text-nowrap whitespace-nowrap max-w-[120px] text-sm text-gray-900">
                     {channel.name}
                   </span>
                 </div>

@@ -2,10 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import "./Live.css";
 // import { ChannelListForTop50 } from "./data/ChannelList";
-import {
-  top50Channels,
-} from "./data/ChannelList";
-const ImgComponent = ({ channelId, old = false }) => {
+import { top50Channels } from "./data/ChannelList";
+const ImgComponent = ({ channelId, old = false, imgRounded = false }) => {
   const [data, setData] = useState({});
   const [img, setImg] = useState();
 

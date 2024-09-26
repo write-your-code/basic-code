@@ -113,7 +113,7 @@ const LiveSubCountAll3D = ({
     // w-[210] for chrome
     // w-[200] for ie
     <div
-      className={`flex mx-[1px] bg-gradient-to-b bg-[#1e1e1e] text-md mb-[2px] border pb-[40px] h-[96px] w-[208px] relative overflow-hidden rounded ${
+      className={`flex mx-[1px] bg-gradient-to-b bg-[#1e1e1e] text-md mb-[2px] border pb-[40px] h-[100px] w-[200px] relative overflow-hidden rounded ${
         value - diff > 0
           ? " border-green-700"
           : "border-red-700 flex-row-reverse"

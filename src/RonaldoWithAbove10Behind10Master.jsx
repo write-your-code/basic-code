@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "./App.css";
 
 // import required modules
-import Child from "./RonaldoWithAboveAllChild";
+import Child from "./RonaldoWithAbove10Behind10Child";
 import MiddleComponent from "./RonaldoAbove10Behind10MiddleComponent";
 // import Child from "./RonaldoWith10BehindChildWithRQ";
 import Counter from "./counter";
