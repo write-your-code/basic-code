@@ -249,7 +249,7 @@ const MiddleComponent = ({
                 height="50"
                 // style=""
                 frameBorder="0"
-                class="giphy-embed absolute top-[35%] -left-[80px] border border-yellow-500 bg-cyan-50 rounded-full"
+                class="giphy-embed absolute top-[35%] -left-[70px] border border-yellow-500 bg-cyan-50 rounded-full"
                 allowFullScreen
               ></iframe>
             </div>
