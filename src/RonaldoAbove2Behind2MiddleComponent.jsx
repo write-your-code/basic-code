@@ -120,12 +120,12 @@ const MiddleComponent = ({
           }
         />
         <div className="flex flex-col justify-center items-center text-white text-xl mt-[5px]">
-          <p className="text-lg px-2 whitespace-nowrap">
+          <p className="text-xl px-2 whitespace-nowrap">
             {data.username || "MrBeast"}
           </p>
           {/* subscribers */}
           {/* <Odometer value={value} /> */}
-          <div className="h-[25px] w-[130px] mt-0 ml-4 overflow-hidden relative">
+          <div className="h-[30px] w-[150px] mt-0 ml-4 overflow-hidden relative">
             <iframe
               height="90px"
               width="240px"
@@ -135,11 +135,11 @@ const MiddleComponent = ({
               //   backgroundColor: "red",
               // }}
               frameborder="0"
-              src={`https://socialcounts.org/youtube-live-subscriber-count/${id}/embed?style=.odoParrent%7Bfont-size%3A18px%7Dbody%7Bbackground-color%3Argba%28255%2C255%2C255%2C0%29%21important%7D.title%7Bfont-size%3A20px%7D.odoParrent%7Bcolor%3A+rgba%28255%2C255%2C255%2C1%29%7D.title%7Bcolor%3A+rgba%280%2C0%2C0%2C1%29%7D.title%7Bfont-size%3A16px%7D`}
+              src={`https://socialcounts.org/youtube-live-subscriber-count/${id}/embed?style=.odoParrent%7Bfont-size%3A24px%7Dbody%7Bbackground-color%3Argba%28255%2C255%2C255%2C0%29%21important%7D.title%7Bfont-size%3A20px%7D.odoParrent%7Bcolor%3A+rgba%28255%2C255%2C255%2C1%29%7D.title%7Bcolor%3A+rgba%280%2C0%2C0%2C1%29%7D.title%7Bfont-size%3A16px%7D`}
               style={{
                 position: "absolute",
                 left: "-70px",
-                bottom: "-25px",
+                bottom: "-20px",
               }}
               allowFullScreen
             ></iframe>

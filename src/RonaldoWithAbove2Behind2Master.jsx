@@ -34,12 +34,12 @@ export default function R10Behind10Above() {
     setRank(ronaldoRank);
     const newData = top50Channels.filter((channel) => {
       if (
-        Number(channel.id) >= Number(ronaldoRank) - 3 &&
+        Number(channel.id) >= Number(ronaldoRank) - 4 &&
         Number(channel.id) <= Number(ronaldoRank)
       )
         return channel;
       if (
-        Number(channel.id) <= Number(ronaldoRank) + 2 &&
+        Number(channel.id) <= Number(ronaldoRank) + 3 &&
         Number(channel.id) >= Number(ronaldoRank)
       )
         return channel;
@@ -58,7 +58,7 @@ export default function R10Behind10Above() {
       {/* <ThreeChannelsFight /> */}
       <div className="flex flex-col gap-2 flex-wrap justify-center  items-center h-screen">
         {dataArray.map((channel, i) =>
-          i + 1 >= 3 && i + 1 <= 4 ? (
+          i + 1 >= 4 && i + 1 <= 5 ? (
             <MiddleComponent
               key={channel.id}
               id={channel.channelId}

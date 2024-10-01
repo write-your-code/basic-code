@@ -113,7 +113,7 @@ const LiveSubCountAll3D = ({
     // w-[210] for chrome
     // w-[200] for ie
     <div
-      className={`flex mx-[1px] bg-gradient-to-b bg-[#1e1e1e] text-md mb-[2px] border pb-[40px] h-[100px] w-[220px] relative overflow-hidden rounded ${
+      className={`flex mx-[1px] bg-gradient-to-b bg-[#1e1e1e] text-md mb-[2px] border pb-[40px] h-[120px] w-[240px] relative overflow-hidden rounded ${
         value - diff > 0
           ? " border-green-700"
           : "border-red-700 flex-row-reverse"
@@ -124,14 +124,14 @@ const LiveSubCountAll3D = ({
         <span className="text-sm text-white font-neutral">{index}</span>
         <div className="flex items-center">
           <img
-            className="w-[40px] h-[40px] rounded-full object-contain"
+            className="w-[60px] h-[60px] rounded-full object-contain"
             src={
               data.userImg ||
               "https://yt3.ggpht.com/fxGKYucJAVme-Yz4fsdCroCFCrANWqw0ql4GYuvx8Uq4l_euNJHgE-w9MTkLQA805vWCi-kE0g=s88-c-k-c0x00ffffff-no-rj"
             }
           />
           <div className="flex flex-col justify-start items-start text-white text-md mt-[1px]">
-            <p className="text-md px-2 whitespace-nowrap">
+            <p className="text-[1rem] px-2 whitespace-nowrap">
               {data.username || "MrBeast"}
             </p>
             {/* subscribers */}
