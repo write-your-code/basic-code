@@ -91,7 +91,8 @@ const LiveSubCountAll = ({
     // [data.username]
   );
   useEffect(() => {
-    const intervalId = setInterval(fetchStats, 3000); // Fetch in 1 second
+    const intervalId = setInterval(fetchStats, 30000); // Fetch in 1 second
+    console.log("state changed in api component");
     return () => {
       clearInterval(intervalId);
     }; // Clean up on unmount
@@ -228,6 +229,7 @@ const LiveSubCountAll = ({
               </span>
               <span>
                 <Odometer value={value} />
+                {/* {value}/ */}
               </span>
             </div>
           </div>

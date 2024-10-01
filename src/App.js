@@ -12,11 +12,13 @@ import LiveCount from "./LiveCount";
 import RonaldovsBeast from "./RonaldoMrbeastMain";
 import RonalWith10Behind from "./RonaldoWith10Behind";
 import RonalWith10Behind10Above from "./RonaldoWithAbove10Behind10Master";
+import RonalWith2Behind2Above from "./RonaldoWithAbove2Behind2Master";
 import RonalAboveAll from "./RonaldoWithAboveAll";
 // import Top50 from "./Top50SubsCountMaster";
 import Top50 from "./Top50SubsCountMasterWithOwnData";
 import Top50OwnApi from "./Top50SubsCountParentOwnApi";
 import TwoChannelsFight from "./TwoChannelsFight";
+import axios from "axios";
 
 function App() {
   const [list, setList] = useState(ChannelList);
@@ -26,13 +28,54 @@ function App() {
   const [layout, setLayout] = useState(0);
   let rank = 1;
   useEffect(() => {
-    // const intervalId = setInterval(() => {
-    //   setSubList((current) => current.sort((a, b) => b.subs - a.subs));
-    //   console.log("current sub list: ", subList);
-    // }, 10000);
+    // const intervalId = setInterval(async () => {
+    // try {
+    //   // const response = await axios.get(
+    //   //   `https://api-v2.nextcounts.com/api/youtube/channel/${id}`
+    //   // );
+    //   // const responseEstSub = await axios.get(
+    //   //   `https://api.socialcounts.org/youtube-live-subscriber-count/${id}`
+
+    //   // old imeplentation
+    //   // const responseEstSub = await axios.get(
+    //   //   `http://localhost:8000/api/${id}`
+    //   // );
+
+    //   // new imeplentation
+    //   // const responseEstSub = await axios.get(`http://localhost:8000/api`);
+
+    //   // const dataEst = await responseEstSub.data;
+    //   // console.log("est dtat is: ", responseEstSub);
+    //   // console.log("estData from new method is: ", dataEst);
+    //   // setValue(dataEst.est_sub);
+    //   // setViews(dataEst.table[0].count);
+    //   // setDiff && setDiff(dataEst.est_sub);
+    //   // setSubList &&
+    //   // setSubList((current) => {
+    //   //   // current.sort((a, b) => a.id - b.id);
+    //   //   // current.filter((value, i) => current.indexOf(value) === i);
+    //   //   // return [...current, dataEst.est_sub];
+    //   //   current.map((c, i) => {
+    //   //     if (c.channelId === id) {
+    //   //       // return { ...c, subs: dataEst.est_sub };
+    //   //       current[i] = { ...c, subs: dataEst.est_sub };
+    //   //     }
+    //   //   });
+    //   //   return current;
+    //   // });
+    //   // return [...current, dataEst.est_sub];
+    //   // });
+    //   // return data;
+    // } catch (error) {
+    //   console.log(error);
+    // }
+    // setSubList((current) => current.sort((a, b) => b.subs - a.subs));
+    // console.log("current sub list: ", subList);
+    // }, 3000);
     // return () => {
     //   clearInterval(intervalId);
     // };
+    console.log("state changed in app.js");
   }, []);
   return (
     <div
@@ -83,7 +126,16 @@ function App() {
           <button className="bg-red-400 p-2 m-2" onClick={() => setLayout(10)}>
             Ronaldo 10 above 10 behind
           </button>
+          <button className="bg-red-400 p-2 m-2" onClick={() => setLayout(11)}>
+            Ronaldo 2 above 2 behind
+          </button>
         </div>
+      )}
+      {layout === 11 && (
+        <>
+          {/* <TwoChannelsFight /> */}
+          <RonalWith2Behind2Above />
+        </>
       )}
       {layout === 10 && (
         <>
